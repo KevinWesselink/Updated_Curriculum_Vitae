@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\CurriculumVitaeController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -13,9 +14,8 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+// View homepage
+Route::get('/', [CurriculumVitaeController::class, 'index']);
 
 // View registration form
 
