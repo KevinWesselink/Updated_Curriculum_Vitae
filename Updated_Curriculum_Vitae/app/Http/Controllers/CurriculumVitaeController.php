@@ -8,6 +8,6 @@ class CurriculumVitaeController extends Controller
 {
     // Show homepage
     public function index() {
-        return view('users.index');
+        return view('curriculumvitae.index');
     }
 }
