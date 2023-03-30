@@ -4,15 +4,15 @@
 
     <div class="z-10">
         <h1 class="text-6xl font-bold uppercase text-white">
-            Lara<span class="text-black">Gigs</span>
+            Kevin<span class="text-black">Wesselink</span>
         </h1>
         <p class="text-2xl text-gray-200 font-bold my-4">
-            Find or post Laravel jobs & projects
+            Kevin Wesselink | Curriculum Vitae
         </p>
         @auth
         <div>
             <a href="/listings/create"
-                class="inline-block border-2 border-white text-white py-2 px-4 rounded-xl uppercase mt-2 hover:text-black hover:border-black">Post a new gig</a>
+                class="inline-block border-2 border-white text-white py-2 px-4 rounded-xl uppercase mt-2 hover:text-black hover:border-black">Update CV</a>
         </div>
         @else
         <div>
