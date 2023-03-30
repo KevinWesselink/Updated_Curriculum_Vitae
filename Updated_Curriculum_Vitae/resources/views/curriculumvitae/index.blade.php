@@ -16,7 +16,7 @@
         @unless($Education->count() == 0)
 
             @foreach ($Education as $Education)
-                {{-- <x-listing-card :listing="$listing" /> --}}
+                <x-education-card :education="$Education" />
             @endforeach
         @else
             <p>Geen opleidingen gevonden.</p>
@@ -25,7 +25,7 @@
         @unless($Courses->count() == 0)
 
             @foreach ($Courses as $Courses)
-                {{-- <x-listing-card :listing="$listing" /> --}}
+                <x-courses-card :courses="$Courses" />
             @endforeach
         @else
             <p>Geen cursussen gevonden.</p>
