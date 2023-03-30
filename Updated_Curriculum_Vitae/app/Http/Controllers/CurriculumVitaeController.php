@@ -10,10 +10,9 @@ class CurriculumVitaeController extends Controller
 {
     // Show homepage
     public function index() {
-        return view('curriculumvitae.index', [
-            'Education' => Education::latest(),
-            'Experience' => Experience::latest(),
-            'Courses' => Courses::latest()
-        ]);
+            $Experience = Experience::all();
+            $Education = Education::all();
+            $Courses = Courses::all();
+            return view('/curriculumvitae.index')->with('Experience', $Experience)->with('Education', $Education)->with('Courses', $Courses);
     }
 }
