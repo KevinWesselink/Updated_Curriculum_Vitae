@@ -2,16 +2,16 @@
     <x-card class="p-10 max-w-lg mx-auto mt-24">
         <header class="text-center">
             <h2 class="text-2xl font-bold uppercase mb-1">
-                Register
+                Registreer
             </h2>
-            <p class="mb-4">Create an account to post gigs</p>
+            <p class="mb-4">Maak een account aan om je cv te updaten</p>
         </header>
 
         <form method="POST" action="/users">
             @csrf
             <div class="mb-6">
                 <label for="name" class="inline-block text-lg mb-2">
-                    Name
+                    Naam
                 </label>
                 <input type="text" class="border border-gray-200 rounded p-2 w-full" name="name" value="{{old('name')}}" />
 
@@ -31,7 +31,7 @@
 
             <div class="mb-6">
                 <label for="password" class="inline-block text-lg mb-2">
-                    Password
+                    Wachtwoord
                 </label>
                 <input type="password" class="border border-gray-200 rounded p-2 w-full" name="password" value="{{old('password')}}" />
 
@@ -42,7 +42,7 @@
 
             <div class="mb-6">
                 <label for="password2" class="inline-block text-lg mb-2">
-                    Confirm Password
+                    Bevestig Wachtwoord
                 </label>
                 <input type="password" class="border border-gray-200 rounded p-2 w-full" name="password_confirmation" value="{{old('password_confirmation')}}" />
 
@@ -53,13 +53,13 @@
 
             <div class="mb-6">
                 <button type="submit" class="bg-laravel text-white rounded py-2 px-4 hover:bg-black">
-                    Sign Up
+                    Maak account aan
                 </button>
             </div>
 
             <div class="mt-8">
                 <p>
-                    Already have an account?
+                    Heb je al een account?
                     <a href="/login" class="text-laravel">Login</a>
                 </p>
             </div>
