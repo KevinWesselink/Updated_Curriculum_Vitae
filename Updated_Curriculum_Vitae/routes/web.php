@@ -41,3 +41,15 @@ Route::get('/login', [UserController::class, 'login'])->name('login')->middlewar
 
 // Log In User
 Route::post('/users/authenticate', [UserController::class, 'authenticate']);
+
+// Show Choice Form
+Route::get('/choice', [CurriculumVitaeController::class, 'choice'])->middleware('auth');
+
+// Show Create Experience Form
+Route::get('/create/experience', [CurriculumVitaeController:: class, 'createExp'])->middleware('auth');
+
+// Show Create Education Form
+Route::get('create/education', [CurriculumVitaeController::class, 'createEdu'])->middleware('auth');
+
+// Show Create Courses Form
+Route::get('create/courses', [CurriculumVitaeController::class, 'createCrs'])->middleware('auth');
