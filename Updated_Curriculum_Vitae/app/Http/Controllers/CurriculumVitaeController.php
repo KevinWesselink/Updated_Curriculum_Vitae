@@ -39,22 +39,22 @@ class CurriculumVitaeController extends Controller
         return view('curriculumvitae.createCourses');
     }
 
-    // Store Listing Data
-    public function store(Request $request) {
+    // Store Experience Data
+    public function storeExp(Request $request) {
         $formFields = $request->validate([
-            'title' => 'required',
-            'company' => ['required', Rule::unique('listings', 'company')],
-            'location' => 'required',
-            'website' => 'required',
-            'email' => ['required', 'email'],
-            'tags' => 'required',
-            'description' => 'required'
+            // 'title' => 'required',
+            // 'company' => ['required', Rule::unique('listings', 'company')],
+            // 'location' => 'required',
+            // 'website' => 'required',
+            // 'email' => ['required', 'email'],
+            // 'tags' => 'required',
+            // 'description' => 'required'
         ]);
 
         $formFields['user_id'] = auth()->id();
 
-        Listing::create($formFields);
+        Experience::create($formFields);
 
-        return redirect('/')->with('message', 'Listing created successfully!');
+        return redirect('/')->with('message', 'Nieuwe werkervaring aangemaakt.');
     }
 }
