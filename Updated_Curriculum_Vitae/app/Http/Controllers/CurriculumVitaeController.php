@@ -82,5 +82,25 @@ class CurriculumVitaeController extends Controller
         return view('curriculumvitae.createCourses');
     }
 
-    
+    // Store Courses Data
+    public function storeCrs(Request $request) {
+        $formFields = $request->validate([
+            'educatorName' => 'required',
+            'courseName' => 'required',
+            'smallExplanation1' => 'required',
+            'smallExplanation2' => '',
+            'smallExplanation3' => '',
+            'smallExplanation4' => '',
+            'smallExplanation5' => '',
+            'validityEarned' => 'required',
+            'validUntil' => 'required',
+            'certificationLocation' => 'required',
+        ]);
+
+        $formFields['user_id'] = auth()->id();
+
+        Courses::create($formFields);
+
+        return redirect('/')->with('message', 'Nieuwe cursus aangemaakt.');
+    }
 }

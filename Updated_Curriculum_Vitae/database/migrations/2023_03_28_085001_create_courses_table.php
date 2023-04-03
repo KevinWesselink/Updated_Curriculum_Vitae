@@ -22,7 +22,7 @@ return new class extends Migration
             $table->longText('smallExplanation5')->nullable();
             $table->String('validityEarned');
             $table->String('validUntil');
-            $table->String('certificatioinLocation');
+            $table->String('certificationLocation');
             $table->timestamps();
         });
     }

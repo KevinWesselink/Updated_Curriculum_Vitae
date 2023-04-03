@@ -1,15 +1,16 @@
-@props(['experience'])
+@props(['courses'])
 
 <x-card>
     <div class="flex">
         <div>
             <h3 class="text-2xl">
-                <a href="/experience/{{ $experience->id }}">{{ $experience->companyName }}</a>
+                <a href="/experience/{{ $courses->id }}">{{ $courses->courseName }}</a>
             </h3>
-            <div class="text-xl font-bold mb-4">{{ $experience->jobTitle }}</div>
-            <div class="text-xl font-bold mb-4">{{ $experience->yearsWorked }}</div>
+            <div class="text-xl font-bold mb-4">{{ $courses->educatorName }}</div>
+            <div class="text-xl font-bold mb-4">{{ $courses->validityEarned }}</div>
+            <div class="text-xl font-bold mb-4">{{ $courses->validUntil }}</div>
             <div class="text-lg mt-4">
-                <i class="fa-solid-fa-location-dot">{{ $experience->companyLocation }}</i>
+                <i class="fa-solid-fa-location-dot">{{ $courses->certificationLocation }}</i>
             </div>
         </div>
     </div>
