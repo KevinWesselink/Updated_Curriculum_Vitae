@@ -11,7 +11,7 @@
         </p>
         @auth
         <div>
-            <a href="/listings/create"
+            <a href="/choice"
                 class="inline-block border-2 border-white text-white py-2 px-4 rounded-xl uppercase mt-2 hover:text-black hover:border-black">Update CV</a>
         </div>
         @else
