@@ -48,6 +48,9 @@ Route::get('/choice', [CurriculumVitaeController::class, 'choice'])->middleware(
 // Show Create Experience Form
 Route::get('/create/experience', [CurriculumVitaeController:: class, 'createExp'])->middleware('auth');
 
+// Store Experience Data
+Route::post('/experiences', [CurriculumVitaeController::class, 'storeExp'])->middleware('auth');
+
 // Show Create Education Form
 Route::get('create/education', [CurriculumVitaeController::class, 'createEdu'])->middleware('auth');
 
