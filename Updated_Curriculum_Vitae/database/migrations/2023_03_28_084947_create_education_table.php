@@ -21,6 +21,7 @@ return new class extends Migration
             $table->longText('smallExplanation4')->nullable();
             $table->longText('smallExplanation5')->nullable();
             $table->String('yearsFollowed');
+            $table->String('status');
             $table->String('schoolLocation');
             $table->timestamps();
         });

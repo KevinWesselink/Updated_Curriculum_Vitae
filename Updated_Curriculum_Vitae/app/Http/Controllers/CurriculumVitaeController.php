@@ -29,26 +29,18 @@ class CurriculumVitaeController extends Controller
         return view('curriculumvitae.createExperience');
     }
 
-    // Show Create Education Form
-    public function createEdu() {
-        return view('curriculumvitae.createEducation');
-    }
-
-    // Show Create Courses Form
-    public function createCrs() {
-        return view('curriculumvitae.createCourses');
-    }
-
     // Store Experience Data
     public function storeExp(Request $request) {
         $formFields = $request->validate([
-            // 'title' => 'required',
-            // 'company' => ['required', Rule::unique('listings', 'company')],
-            // 'location' => 'required',
-            // 'website' => 'required',
-            // 'email' => ['required', 'email'],
-            // 'tags' => 'required',
-            // 'description' => 'required'
+            'companyName' => 'required',
+            'jobTitle' => 'required',
+            'smallExplanation1' => 'required',
+            'smallExplanation2' => '',
+            'smallExplanation3' => '',
+            'smallExplanation4' => '',
+            'smallExplanation5' => '',
+            'yearsWorked' => 'required',
+            'companyLocation' => 'required',
         ]);
 
         $formFields['user_id'] = auth()->id();
@@ -57,4 +49,38 @@ class CurriculumVitaeController extends Controller
 
         return redirect('/')->with('message', 'Nieuwe werkervaring aangemaakt.');
     }
+
+    // Show Create Education Form
+    public function createEdu() {
+        return view('curriculumvitae.createEducation');
+    }
+
+    // Store Education Data
+    public function storeEdu(Request $request) {
+        $formFields = $request->validate([
+            'schoolName' => 'required',
+            'educationName' => 'required',
+            'smallExplanation1' => 'required',
+            'smallExplanation2' => '',
+            'smallExplanation3' => '',
+            'smallExplanation4' => '',
+            'smallExplanation5' => '',
+            'yearsFollowed' => 'required',
+            'status' => 'required',
+            'schoolLocation' => 'required',
+        ]);
+
+        $formFields['user_id'] = auth()->id();
+
+        Education::create($formFields);
+
+        return redirect('/')->with('message', 'Nieuwe opleiding aangemaakt.');
+    }
+
+    // Show Create Courses Form
+    public function createCrs() {
+        return view('curriculumvitae.createCourses');
+    }
+
+    
 }

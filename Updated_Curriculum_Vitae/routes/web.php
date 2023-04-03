@@ -54,5 +54,8 @@ Route::post('/experiences', [CurriculumVitaeController::class, 'storeExp'])->mid
 // Show Create Education Form
 Route::get('create/education', [CurriculumVitaeController::class, 'createEdu'])->middleware('auth');
 
+// Store Education Data
+Route::post('/educations', [CurriculumVitaeController::class, 'storeEdu'])->middleware('auth');
+
 // Show Create Courses Form
 Route::get('create/courses', [CurriculumVitaeController::class, 'createCrs'])->middleware('auth');

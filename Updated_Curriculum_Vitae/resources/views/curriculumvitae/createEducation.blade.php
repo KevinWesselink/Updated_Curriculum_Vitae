@@ -2,104 +2,119 @@
     <x-card class="p-10 max-w-lg mx-auto mt-24">
         <header class="text-center">
             <h2 class="text-2xl font-bold uppercase mb-1">
-                Create a Gig
+                Maak een opleiding aan
             </h2>
-            <p class="mb-4">Post a gig to find a developer</p>
+            <p class="mb-4">Voeg een opleiding toe aan je cv</p>
         </header>
 
-        <form method="POST" action="/listings" enctype="multipart/form-data">
+        <form method="POST" action="/educations" enctype="multipart/form-data">
             @csrf
             <div class="mb-6">
-                <label for="company" class="inline-block text-lg mb-2">Company Name</label>
-                <input type="text" class="border border-gray-200 rounded p-2 w-full" name="company"
-                value="{{ old('company') }}" />
+                <label for="schoolName" class="inline-block text-lg mb-2">School</label>
+                <input type="text" class="border border-gray-200 rounded p-2 w-full" name="schoolName"
+                value="{{ old('schoolName') }}" />
 
-                @error('company')
+                @error('schoolName')
                     <p class="text-red-500 text-xs mt-1">{{ $message }}</p>
                 @enderror
             </div>
 
             <div class="mb-6">
-                <label for="title" class="inline-block text-lg mb-2">Job Title</label>
-                <input type="text" class="border border-gray-200 rounded p-2 w-full" name="title"
-                    placeholder="Example: Senior Laravel Developer" value="{{ old('title') }}" />
+                <label for="educationName" class="inline-block text-lg mb-2">Naam van opleiding</label>
+                <input type="text" class="border border-gray-200 rounded p-2 w-full" name="educationName"
+                    placeholder="Bijvoorbeeld: VMBO, HAVO" value="{{ old('educationName') }}" />
 
-                @error('title')
+                @error('educationName')
                     <p class="text-red-500 text-xs mt-1">{{ $message }}</p>
                 @enderror
             </div>
 
             <div class="mb-6">
-                <label for="location" class="inline-block text-lg mb-2">Job Location</label>
-                <input type="text" class="border border-gray-200 rounded p-2 w-full" name="location"
-                    placeholder="Example: Remote, Boston MA, etc" value="{{ old('location') }}" />
+                <label for="smallExplanation1" class="inline-block text-lg mb-2">Kleine uitleg</label>
+                <input type="text" class="border border-gray-200 rounded p-2 w-full" name="smallExplanation1"
+                    placeholder="Bijvoorbeeld: Ik heb leren samenwerken" value="{{ old('smallExplanation1') }}" />
 
-                @error('location')
+                @error('smallExplanation1')
                     <p class="text-red-500 text-xs mt-1">{{ $message }}</p>
                 @enderror
             </div>
 
             <div class="mb-6">
-                <label for="email" class="inline-block text-lg mb-2">Contact Email</label>
-                <input type="text" class="border border-gray-200 rounded p-2 w-full" name="email" value="{{ old('email') }}" />
+                <label for="smallExplanation2" class="inline-block text-lg mb-2">Kleine uitleg</label>
+                <input type="text" class="border border-gray-200 rounded p-2 w-full" name="smallExplanation2"
+                    placeholder="Bijvoorbeeld: Ik heb leren samenwerken" value="{{ old('smallExplanation2') }}" />
 
-                @error('email')
+                @error('smallExplanation2')
                     <p class="text-red-500 text-xs mt-1">{{ $message }}</p>
                 @enderror
             </div>
 
             <div class="mb-6">
-                <label for="website" class="inline-block text-lg mb-2">
-                    Website/Application URL
-                </label>
-                <input type="text" class="border border-gray-200 rounded p-2 w-full" name="website" value="{{ old('website') }}" />
+                <label for="smallExplanation3" class="inline-block text-lg mb-2">Kleine uitleg</label>
+                <input type="text" class="border border-gray-200 rounded p-2 w-full" name="smallExplanation3"
+                    placeholder="Bijvoorbeeld: Ik heb leren samenwerken" value="{{ old('smallExplanation3') }}" />
 
-                @error('website')
+                @error('smallExplanation3')
                     <p class="text-red-500 text-xs mt-1">{{ $message }}</p>
                 @enderror
             </div>
 
             <div class="mb-6">
-                <label for="tags" class="inline-block text-lg mb-2">
-                    Tags (Comma Separated)
-                </label>
-                <input type="text" class="border border-gray-200 rounded p-2 w-full" name="tags"
-                    placeholder="Example: Laravel, Backend, Postgres, etc" value="{{ old('tags') }}" />
+                <label for="smallExplanation4" class="inline-block text-lg mb-2">Kleine uitleg</label>
+                <input type="text" class="border border-gray-200 rounded p-2 w-full" name="smallExplanation4"
+                    placeholder="Bijvoorbeeld: Ik heb leren samenwerken" value="{{ old('smallExplanation4') }}" />
 
-                @error('tags')
+                @error('smallExplanation4')
                     <p class="text-red-500 text-xs mt-1">{{ $message }}</p>
                 @enderror
             </div>
 
             <div class="mb-6">
-                <label for="logo" class="inline-block text-lg mb-2">
-                    Company Logo
-                </label>
-                <input type="file" class="border border-gray-200 rounded p-2 w-full" name="logo" />
+                <label for="smallExplanation5" class="inline-block text-lg mb-2">Kleine uitleg</label>
+                <input type="text" class="border border-gray-200 rounded p-2 w-full" name="smallExplanation5"
+                    placeholder="Bijvoorbeeld: Ik heb leren samenwerken" value="{{ old('smallExplanation5') }}" />
+
+                @error('smallExplanation5')
+                    <p class="text-red-500 text-xs mt-1">{{ $message }}</p>
+                @enderror
+            </div>
             
-                @error('logo')
-                <p class="text-red-500 text-xs mt-1">{{ $message }}</p>
-            @enderror
+            <div class="mb-6">
+                <label for="yearsFollowed" class="inline-block text-lg mb-2">Duur van de opleiding</label>
+                <input type="text" class="border border-gray-200 rounded p-2 w-full" name="yearsFollowed"
+                    placeholder="Bijvoorbeeld: 2013 - 2017" value="{{ old('yearsFollowed') }}" />
+
+                @error('yearsFollowed')
+                    <p class="text-red-500 text-xs mt-1">{{ $message }}</p>
+                @enderror
             </div>
 
             <div class="mb-6">
-                <label for="description" class="inline-block text-lg mb-2">
-                    Job Description
-                </label>
-                <textarea class="border border-gray-200 rounded p-2 w-full" name="description" rows="10"
-                    placeholder="Include tasks, requirements, salary, etc">{{ old('description') }}</textarea>
+                <label for="status" class="inline-block text-lg mb-2">Status van de opleiding</label>
+                <input type="text" class="border border-gray-200 rounded p-2 w-full" name="status"
+                    placeholder="Bijvoorbeeld: Behaald, afgebroken, bezig" value="{{ old('status') }}" />
 
-                @error('description')
+                @error('status')
+                    <p class="text-red-500 text-xs mt-1">{{ $message }}</p>
+                @enderror
+            </div>
+
+            <div class="mb-6">
+                <label for="schoolLocation" class="inline-block text-lg mb-2">Locatie</label>
+                <input type="text" class="border border-gray-200 rounded p-2 w-full" name="schoolLocation"
+                    placeholder="Bijvoorbeeld: Deventer" value="{{ old('schoolLocation') }}" />
+
+                @error('schoolLocation')
                     <p class="text-red-500 text-xs mt-1">{{ $message }}</p>
                 @enderror
             </div>
 
             <div class="mb-6">
                 <button class="bg-laravel text-white rounded py-2 px-4 hover:bg-black">
-                    Create Gig
+                    Creëer opleiding
                 </button>
 
-                <a href="/" class="text-black ml-4"> Back </a>
+                <a href="/" class="text-black ml-4"> Terug </a>
             </div>
         </form>
     </x-card>
