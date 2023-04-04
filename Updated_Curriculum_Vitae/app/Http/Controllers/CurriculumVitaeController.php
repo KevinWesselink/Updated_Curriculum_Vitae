@@ -12,11 +12,11 @@ class CurriculumVitaeController extends Controller
 {
     // Show Homepage
     public function index() {
-            $Experience = Experience::all();
-            // dd($Experience);
-            $Education = Education::all();
-            $Courses = Courses::all();
-            return view('/curriculumvitae.index')->with('Experience', $Experience)->with('Education', $Education)->with('Courses', $Courses);
+            return view('curriculumvitae.index', [
+                $Experience = Experience::latest()->filter(request(['search']))->get(),
+                $Education = Education::latest()->filter(request(['search']))->get(),
+                $Courses = Courses::latest()->filter(request(['search']))->get()
+            ])->with('Experience', $Experience)->with('Education', $Education)->with('Courses', $Courses);
     }
 
     // Show Choice Form
