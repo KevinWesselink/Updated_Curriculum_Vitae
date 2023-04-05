@@ -4,7 +4,7 @@
     <div class="flex">
         <div>
             <h3 class="text-2xl">
-                <a href="/experience/{{ $courses->id }}">{{ $courses->courseName }}</a>
+                <a href="/courses/{{ $courses->id }}">{{ $courses->courseName }}</a>
             </h3>
             <div class="text-xl font-bold mb-4">{{ $courses->educatorName }}</div>
             <div class="text-xl font-bold mb-4">{{ $courses->validityEarned }}</div>

@@ -106,9 +106,22 @@ class CurriculumVitaeController extends Controller
 
     // Show Single Experience
     public function showExp(Experience $experience) {
-        //dd($Experience);
         return view('curriculumvitae.show-experience', [
             'experience' => $experience
+        ]);
+    }
+
+        // Show Single Experience
+        public function showEdu(Education $education) {
+            return view('curriculumvitae.show-education', [
+                'education' => $education
+            ]);
+        }
+
+            // Show Single Experience
+    public function showCrs(Courses $courses) {
+        return view('curriculumvitae.show-courses', [
+            'courses' => $courses
         ]);
     }
 }

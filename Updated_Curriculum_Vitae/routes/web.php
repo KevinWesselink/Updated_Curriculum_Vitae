@@ -65,3 +65,9 @@ Route::post('/courses', [CurriculumVitaeController::class, 'storeCrs'])->middlew
 
 // Show Single Experience
 Route::get('/experience/{experience}', [CurriculumVitaeController::class, 'showExp']);
+
+// Show Single Education
+Route::get('/education/{education}', [CurriculumVitaeController::class, 'showEdu']);
+
+// Show Single Courses
+Route::get('/courses/{courses}', [CurriculumVitaeController::class, 'showCrs']);
