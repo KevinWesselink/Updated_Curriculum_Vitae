@@ -62,3 +62,6 @@ Route::get('create/courses', [CurriculumVitaeController::class, 'createCrs'])->m
 
 // Store Course Data
 Route::post('/courses', [CurriculumVitaeController::class, 'storeCrs'])->middleware('auth');
+
+// Show Single Experience
+Route::get('/experience/{experience}', [CurriculumVitaeController::class, 'showExp']);
