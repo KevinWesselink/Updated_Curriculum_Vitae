@@ -12,13 +12,10 @@ class CurriculumVitaeController extends Controller
 {
     // Show Homepage
     public function index() {
-        $Experience = Experience::latest()->get();
-        $Education = Education::latest()->get();
-        $Courses = Courses::latest()->get();
             return view('curriculumvitae.index', [
-                // $Experience = Experience::latest()->filter(request(['search']))->get(),
-                // $Education = Education::latest()->filter(request(['search']))->get(),
-                // $Courses = Courses::latest()->filter(request(['search']))->get()
+                $Experience = Experience::latest()->get(),
+                $Education = Education::latest()->get(),
+                $Courses = Courses::latest()->get()
             ])->with('Experience', $Experience)->with('Education', $Education)->with('Courses', $Courses);
     }
 
@@ -105,5 +102,13 @@ class CurriculumVitaeController extends Controller
         Courses::create($formFields);
 
         return redirect('/')->with('message', 'Nieuwe cursus aangemaakt.');
+    }
+
+    // Show Single Experience
+    public function showExp(Experience $experience) {
+        //dd($Experience);
+        return view('curriculumvitae.show-experience', [
+            'experience' => $experience
+        ]);
     }
 }
