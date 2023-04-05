@@ -38,7 +38,7 @@
                     </span>
                 </li>
                 <li>
-                    <a href="/listings/manage" class="hover:text-laravel"><i class="fa-solid fa-gear"></i> Beheer
+                    <a href="/manage" class="hover:text-laravel"><i class="fa-solid fa-gear"></i> Beheer
                         CV</a>
                 </li>
                 <li>
