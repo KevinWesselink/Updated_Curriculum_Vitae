@@ -12,10 +12,13 @@ class CurriculumVitaeController extends Controller
 {
     // Show Homepage
     public function index() {
+        $Experience = Experience::latest()->get();
+        $Education = Education::latest()->get();
+        $Courses = Courses::latest()->get();
             return view('curriculumvitae.index', [
-                $Experience = Experience::latest()->filter(request(['search']))->get(),
-                $Education = Education::latest()->filter(request(['search']))->get(),
-                $Courses = Courses::latest()->filter(request(['search']))->get()
+                // $Experience = Experience::latest()->filter(request(['search']))->get(),
+                // $Education = Education::latest()->filter(request(['search']))->get(),
+                // $Courses = Courses::latest()->filter(request(['search']))->get()
             ])->with('Experience', $Experience)->with('Education', $Education)->with('Courses', $Courses);
     }
 
