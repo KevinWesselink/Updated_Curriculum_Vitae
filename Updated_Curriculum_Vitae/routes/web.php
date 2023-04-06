@@ -72,5 +72,23 @@ Route::get('/education/{education}', [CurriculumVitaeController::class, 'showEdu
 // Show Single Courses
 Route::get('/courses/{courses}', [CurriculumVitaeController::class, 'showCrs']);
 
+// Show Edit Experience Form
+Route::get('/experience/{experience}/edit', [CurriculumVitaeController::class, 'editExp'])->middleware('auth');
+
+// Update Experience
+Route::put('/experience/{experience}', [CurriculumVitaeController::class, 'updateExp'])->middleware('auth');
+
+// Show Edit Education Form
+Route::get('/education/{education}/edit', [CurriculumVitaeController::class, 'editEdu'])->middleware('auth');
+
+// Update Education
+Route::put('/education/{education}', [CurriculumVitaeController::class, 'updateEdu'])->middleware('auth');
+
+// Show Edit Courses Form
+Route::get('/courses/{courses}/edit', [CurriculumVitaeController::class, 'editCrs'])->middleware('auth');
+
+// Update Courses
+Route::put('/courses/{courses}', [CurriculumVitaeController::class, 'updateCrs'])->middleware('auth');
+
 // Manage Database Input
 Route::get('/manage', [CurriculumVitaeController::class, 'manage'])->middleware('auth');

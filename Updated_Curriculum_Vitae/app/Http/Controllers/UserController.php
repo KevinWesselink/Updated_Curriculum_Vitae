@@ -63,4 +63,19 @@ class UserController extends Controller
 
         return back()->withErrors(['email' => 'Ongeldige Gegevens'])->onlyInput('email');
     }
+
+    // Relationship With Experience
+    public function Experience() {
+        return $this->hasMany(Experience::class, 'user_id');
+    }
+
+    // Relationship With Education
+    public function Education() {
+        return $this->hasMany(Education::class, 'user_id');
+    }
+
+    // Relationship With Courses
+    public function Courses() {
+        return $this->hasMany(Courses::class, 'user_id');
+    }
 }

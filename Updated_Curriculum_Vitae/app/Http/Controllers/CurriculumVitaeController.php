@@ -118,11 +118,103 @@ class CurriculumVitaeController extends Controller
         ]);
     }
 
-        // Show Single Experience
+    // Show Single Experience
     public function showCrs(Courses $courses) {
         return view('curriculumvitae.show-courses', [
         'courses' => $courses
         ]);
+    }
+
+    // Show Edit Experience Form
+    public function editExp(Experience $experience) {
+        return view('curriculumvitae.editExperience', ['experience' => $experience]);
+    }
+
+    // Update Experience Data
+    public function updateExp(Request $request, Experience $experience) {
+
+        // Make sure logged in user is owner
+        if ($experience->user_id != auth()->id()) {
+            abort(403, 'Unauthorized Action');
+        }
+
+        $formFields = $request->validate([
+            'companyName' => 'required',
+            'jobTitle' => 'required',
+            'smallExplanation1' => 'required',
+            'smallExplanation2' => '',
+            'smallExplanation3' => '',
+            'smallExplanation4' => '',
+            'smallExplanation5' => '',
+            'yearsWorked' => 'required',
+            'companyLocation' => 'required',
+        ]);
+
+        $experience->update($formFields);
+
+        return back()->with('message', 'Werkervaring geüpdatet');
+    }
+
+    // Show Edit Education Form
+    public function editEdu(Education $education) {
+        return view('curriculumvitae.editEducation', ['education' => $education]);
+    }
+
+    // Update Education Data
+    public function updateEdu(Request $request, Education $education) {
+
+        // Make sure logged in user is owner
+        if ($education->user_id != auth()->id()) {
+            abort(403, 'Unauthorized Action');
+        }
+
+        $formFields = $request->validate([
+            'schoolName' => 'required',
+            'educationName' => 'required',
+            'smallExplanation1' => 'required',
+            'smallExplanation2' => '',
+            'smallExplanation3' => '',
+            'smallExplanation4' => '',
+            'smallExplanation5' => '',
+            'yearsFollowed' => 'required',
+            'status' => 'required',
+            'schoolLocation' => 'required',
+        ]);
+
+        $education->update($formFields);
+
+        return back()->with('message', 'Opleiding geüpdatet');
+    }
+
+    // Show Edit Courses Form
+    public function editCrs(Courses $courses) {
+        return view('curriculumvitae.editCourses', ['courses' => $courses]);
+    }
+
+    // Update Courses Data
+    public function updateCrs(Request $request, Courses $courses) {
+
+        // Make sure logged in user is owner
+        if ($courses->user_id != auth()->id()) {
+            abort(403, 'Je bent niet de eigenaar van deze cursus.');
+        }
+
+        $formFields = $request->validate([
+            'educatorName' => 'required',
+            'courseName' => 'required',
+            'smallExplanation1' => 'required',
+            'smallExplanation2' => '',
+            'smallExplanation3' => '',
+            'smallExplanation4' => '',
+            'smallExplanation5' => '',
+            'validityEarned' => 'required',
+            'validUntil' => 'required',
+            'certificationLocation' => 'required',
+        ]);
+
+        $courses->update($formFields);
+
+        return back()->with('message', 'Cursus geüpdatet');
     }
 
     public function manage() {
