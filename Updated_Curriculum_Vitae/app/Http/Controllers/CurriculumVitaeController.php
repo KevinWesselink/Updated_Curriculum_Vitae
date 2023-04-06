@@ -111,17 +111,21 @@ class CurriculumVitaeController extends Controller
         ]);
     }
 
-        // Show Single Experience
-        public function showEdu(Education $education) {
-            return view('curriculumvitae.show-education', [
-                'education' => $education
-            ]);
-        }
+    // Show Single Experience
+    public function showEdu(Education $education) {
+        return view('curriculumvitae.show-education', [
+            'education' => $education
+        ]);
+    }
 
-            // Show Single Experience
+        // Show Single Experience
     public function showCrs(Courses $courses) {
         return view('curriculumvitae.show-courses', [
-            'courses' => $courses
+        'courses' => $courses
         ]);
+    }
+
+    public function manage() {
+        return view('users.manage');
     }
 }

@@ -73,4 +73,4 @@ Route::get('/education/{education}', [CurriculumVitaeController::class, 'showEdu
 Route::get('/courses/{courses}', [CurriculumVitaeController::class, 'showCrs']);
 
 // Manage Database Input
-Route::get('manage', [CurriculumVitaeController::class, 'manage'])->middleware('auth');
+Route::get('/manage', [CurriculumVitaeController::class, 'manage'])->middleware('auth');
