@@ -217,7 +217,18 @@ class CurriculumVitaeController extends Controller
         return back()->with('message', 'Cursus geüpdatet');
     }
 
+    // Return Manage Page View
     public function manage() {
         return view('users.manage');
+    }
+
+    // Return About Owner Page View
+    public function aboutUser() {
+        return view('users.aboutUser');
+    }
+
+    // Return About CurriculumVitae Page View
+    public function aboutCV() {
+        return view('curriculumvitae.aboutCurriculumVitae');
     }
 }
