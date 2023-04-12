@@ -31,10 +31,10 @@
             <i class="fa-solid fa-house"></i> Home
         </a>
         <a href="/about/user" class="ml-6">
-            <i class="fa-solid fa-address-card"></i> Over gebruiker
+            <i class="fa-solid fa-address-card"></i> Personalia
         </a>
         <a href="/about/curriculumvitae" class="ml-6">
-            <i class="fa-solid fa-address-card"></i> Over CV
+            <i class="fa-solid fa-address-card"></i> Over deze website
         </a>
         <ul class="flex space-x-6 mr-6 text-lg">
             @auth
