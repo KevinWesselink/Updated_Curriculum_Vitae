@@ -36,6 +36,9 @@
         <a href="/about/curriculumvitae" class="ml-6">
             <i class="fa-solid fa-address-card"></i> Over deze website
         </a>
+        <a href="https://github.com/KevinWesselink" target="_blank" class="ml-6">
+            <i class="fa-brands fa-github"></i> Github
+        </a>
         <ul class="flex space-x-6 mr-6 text-lg">
             @auth
                 <li>
