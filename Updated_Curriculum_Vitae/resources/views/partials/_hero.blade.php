@@ -9,6 +9,9 @@
         <p class="text-2xl text-gray-200 font-bold my-4">
             Kevin Wesselink | Curriculum Vitae
         </p>
+        <p class="text-2xl text-gray-200 font-bold my-2">
+            Benieuwd naar wie ik ben?
+        </p>
         @auth
         <div>
             <a href="/choice"
@@ -16,9 +19,9 @@
         </div>
         @else
         <div>
-            <a href="/register"
-                class="inline-block border-2 border-white text-white py-2 px-4 rounded-xl uppercase mt-2 hover:text-black hover:border-black">Sign
-                Bekijk bio</a>
+            <a href="/about/user"
+                class="inline-block border-2 border-white text-white py-2 px-4 rounded-xl uppercase mt-2 hover:text-black hover:border-black">
+                Bekijk mijn personalia</a>
         </div>
         @endauth
     </div>
