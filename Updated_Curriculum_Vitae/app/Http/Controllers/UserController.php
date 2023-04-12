@@ -58,7 +58,7 @@ class UserController extends Controller
         if(auth()->attempt($formFields)) {
             $request->session()->regenerate();
 
-            return redirect('/')->with('message', 'Je bent nu ingelogd');
+            return redirect('/')->with('message', 'Gebruiker ingelogd');
         }
 
         return back()->withErrors(['email' => 'Ongeldige Gegevens'])->onlyInput('email');
