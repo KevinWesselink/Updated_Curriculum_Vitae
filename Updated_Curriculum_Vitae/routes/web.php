@@ -91,10 +91,10 @@ Route::get('/courses/{courses}/edit', [CurriculumVitaeController::class, 'editCr
 Route::put('/courses/{courses}', [CurriculumVitaeController::class, 'updateCrs'])->middleware('auth');
 
 // About Owner Page
-Route::get('/about/user', [CurriculumVitaeController::class, 'aboutUser'])->middleware('guest');
+Route::get('/about/user', [CurriculumVitaeController::class, 'aboutUser']);
 
 // About CurriculumVitae Page
-Route::get('/about/curriculumvitae', [CurriculumVitaeController::class, 'aboutCV'])->middleware('guest');
+Route::get('/about/curriculumvitae', [CurriculumVitaeController::class, 'aboutCV']);
 
 // Manage Database Input
 Route::get('/manage', [CurriculumVitaeController::class, 'manage'])->middleware('auth');
