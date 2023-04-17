@@ -95,7 +95,7 @@
                                         </div>
                                     </div>
                                     <div class="grid grid-cols-2">
-                                        <div class="px-4 py-2 font-semibold">Geboortedag</div>
+                                        <div class="px-4 py-2 font-semibold">Geboortedatum</div>
                                         <div class="px-4 py-2">21 januari 2001</div>
                                     </div>
                                 </div>
