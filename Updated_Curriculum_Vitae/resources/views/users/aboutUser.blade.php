@@ -116,8 +116,9 @@
                                     </div>
                                     <ul class="list-inside space-y-2">
                                         <li>
-                                            <div class="text-teal-600">Java</div>
-                                            <div class="text-gray-500 text-xs">Augustus 2020 - Februari 2022</div>
+                                            {{-- <div class="text-teal-600">Java</div>
+                                            <div class="text-gray-500 text-xs">Augustus 2020 - Februari 2022</div> --}}
+                                            <x-dropdownJava></x-dropdownJava>
                                         </li>
                                         <li>
                                             <div class="text-teal-600">PHP</div>
