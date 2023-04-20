@@ -163,7 +163,7 @@ class CurriculumVitaeController extends Controller
         }
 
         $experience->delete();
-        return redirect('/')->with('message', 'Listing deleted successfully!');
+        return redirect('/')->with('message', 'Werkervaring verwijderd');
     }
 
 
@@ -177,7 +177,7 @@ class CurriculumVitaeController extends Controller
 
         // Make sure logged in user is owner
         if ($education->user_id != auth()->id()) {
-            abort(403, 'Unauthorized Action');
+            abort(403, 'Je bent niet de eigenaar van deze werkervaring');
         }
 
         $formFields = $request->validate([
@@ -202,11 +202,11 @@ class CurriculumVitaeController extends Controller
     public function destroyEdu(Education $education) {
         // Make sure logged in user is owner
         if ($education->user_id != auth()->id()) {
-            abort(403, 'Unauthorized Action');
+            abort(403, 'Je bent niet de eigenaar van deze opleiding');
         }
 
         $education->delete();
-        return redirect('/')->with('message', 'Listing deleted successfully!');
+        return redirect('/')->with('message', 'Opleiding verwijderd');
     }
 
 
@@ -245,11 +245,11 @@ class CurriculumVitaeController extends Controller
     public function destroyCrs(Courses $courses) {
         // Make sure logged in user is owner
         if ($courses->user_id != auth()->id()) {
-            abort(403, 'Unauthorized Action');
+            abort(403, 'Je bent niet de eigenaar van deze cursus');
         }
 
         $courses->delete();
-        return redirect('/')->with('message', 'Listing deleted successfully!');
+        return redirect('/')->with('message', 'Cursus verwijderd');
     }
 
 
