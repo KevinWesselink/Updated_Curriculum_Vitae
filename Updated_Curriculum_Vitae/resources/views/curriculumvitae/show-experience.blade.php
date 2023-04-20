@@ -31,12 +31,12 @@
                 <i class="fa-solid fa-pencil"></i>Pas aan
             </a>
 
-            {{-- <form method="POST" action="/listings/{{ $listing->id }}">
+            <form method="POST" action="/experience/{{ $experience->id }}">
                 @csrf
                 @method('DELETE')
                 <button class="text-red-500"><i class="fa-solid fa-trash"></i>
-                    Delete</button>
-            </form> --}}
+                    Verwijder</button>
+            </form>
         </x-card>
     </div>
 </x-layout>

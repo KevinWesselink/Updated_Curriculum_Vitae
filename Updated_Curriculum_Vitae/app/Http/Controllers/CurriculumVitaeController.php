@@ -155,6 +155,18 @@ class CurriculumVitaeController extends Controller
         return back()->with('message', 'Werkervaring geüpdatet');
     }
 
+    // Delete Experience
+    public function destroyExp(Experience $experience) {
+        // Make sure logged in user is owner
+        if ($experience->user_id != auth()->id()) {
+            abort(403, 'Unauthorized Action');
+        }
+
+        $experience->delete();
+        return redirect('/')->with('message', 'Listing deleted successfully!');
+    }
+
+
     // Show Edit Education Form
     public function editEdu(Education $education) {
         return view('curriculumvitae.editEducation', ['education' => $education]);
@@ -186,6 +198,18 @@ class CurriculumVitaeController extends Controller
         return back()->with('message', 'Opleiding geüpdatet');
     }
 
+    // Delete Education
+    public function destroyEdu(Education $education) {
+        // Make sure logged in user is owner
+        if ($education->user_id != auth()->id()) {
+            abort(403, 'Unauthorized Action');
+        }
+
+        $education->delete();
+        return redirect('/')->with('message', 'Listing deleted successfully!');
+    }
+
+
     // Show Edit Courses Form
     public function editCrs(Courses $courses) {
         return view('curriculumvitae.editCourses', ['courses' => $courses]);
@@ -216,6 +240,18 @@ class CurriculumVitaeController extends Controller
 
         return back()->with('message', 'Cursus geüpdatet');
     }
+
+    // Delete Courses
+    public function destroyCrs(Courses $courses) {
+        // Make sure logged in user is owner
+        if ($courses->user_id != auth()->id()) {
+            abort(403, 'Unauthorized Action');
+        }
+
+        $courses->delete();
+        return redirect('/')->with('message', 'Listing deleted successfully!');
+    }
+
 
     // Return Manage Page View
     public function manage() {

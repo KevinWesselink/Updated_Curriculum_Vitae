@@ -78,17 +78,26 @@ Route::get('/experience/{experience}/edit', [CurriculumVitaeController::class, '
 // Update Experience
 Route::put('/experience/{experience}', [CurriculumVitaeController::class, 'updateExp'])->middleware('auth');
 
+// Delete Experience
+Route::delete('/experience/{experience}', [CurriculumVitaeController::class, 'destroyExp'])->middleware('auth');
+
 // Show Edit Education Form
 Route::get('/education/{education}/edit', [CurriculumVitaeController::class, 'editEdu'])->middleware('auth');
 
 // Update Education
 Route::put('/education/{education}', [CurriculumVitaeController::class, 'updateEdu'])->middleware('auth');
 
+// Delete Education
+Route::delete('/education/{education}', [CurriculumVitaeController::class, 'destroyEdu'])->middleware('auth');
+
 // Show Edit Courses Form
 Route::get('/courses/{courses}/edit', [CurriculumVitaeController::class, 'editCrs'])->middleware('auth');
 
 // Update Courses
 Route::put('/courses/{courses}', [CurriculumVitaeController::class, 'updateCrs'])->middleware('auth');
+
+// Delete Courses
+Route::delete('/courses/{courses}', [CurriculumVitaeController::class, 'destroyCrs'])->middleware('auth');
 
 // About Owner Page
 Route::get('/about/user', [CurriculumVitaeController::class, 'aboutUser']);
