@@ -2,20 +2,22 @@
     <x-card>
         <link href="https://unpkg.com/tailwindcss@^1.0/dist/tailwind.min.css" rel="stylesheet">
         <script src="https://cdn.jsdelivr.net/gh/alpinejs/alpine@v2.x.x/dist/alpine.min.js" defer></script>
-        
-        
-        
+
+
+
         <div class="bg-gray-100">
-         <div class="w-full text-white bg-laravel">
-                <div class="flex flex-col max-w-screen-xl px-4 mx-auto md:items-center md:justify-between md:flex-row md:px-6 lg:px-8">
+            <div class="w-full text-white bg-laravel">
+                <div
+                    class="flex flex-col max-w-screen-xl px-4 mx-auto md:items-center md:justify-between md:flex-row md:px-6 lg:px-8">
                     <div class="p-4 flex flex-row items-center justify-between">
                         <p
-                            class="text-lg font-semibold tracking-widest uppercase rounded-lg focus:outline-none focus:shadow-outline">Personalia
+                            class="text-lg font-semibold tracking-widest uppercase rounded-lg focus:outline-none focus:shadow-outline">
+                            Personalia
                         </p>
                     </div>
                 </div>
             </div>
-        
+
             <div class="container mx-auto my-5 p-5">
                 <div class="md:flex no-wrap md:-mx-2 ">
                     <!-- Left Side -->
@@ -23,13 +25,13 @@
                         <!-- Profile Card -->
                         <div class="bg-white p-3 border-t-4 border-laravel">
                             <div class="image overflow-hidden">
-                                <img class="h-auto w-full mx-auto"
-                                    src="/images/FotoKevin.jpg"
+                                <img class="h-auto w-full mx-auto" src="/images/FotoKevin.jpg"
                                     alt="Foto van Kevin Wesselink">
                             </div>
                             <h1 class="text-gray-900 font-bold text-xl leading-8 my-1">Kevin Wesselink</h1>
                             <h3 class="text-gray-600 font-lg text-semibold leading-6">Student Software Development</h3>
-                            <p class="text-sm text-gray-500 hover:text-gray-600 leading-6">Student software development aan het Deltion College te Zwolle.
+                            <p class="text-sm text-gray-500 hover:text-gray-600 leading-6">Student software development
+                                aan het Deltion College te Zwolle.
                                 Voormalig student Software Developer aan de Hogeschool Utrecht te Amersfoort.
                             </p>
                             <ul
@@ -54,8 +56,8 @@
                         <div class="bg-white p-3 shadow-sm rounded-sm">
                             <div class="flex items-center space-x-2 font-semibold text-gray-900 leading-8">
                                 <span clas="text-green-500">
-                                    <svg class="h-5" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
-                                        stroke="currentColor">
+                                    <svg class="h-5" xmlns="http://www.w3.org/2000/svg" fill="none"
+                                        viewBox="0 0 24 24" stroke="currentColor">
                                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
                                             d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z" />
                                     </svg>
@@ -91,7 +93,8 @@
                                     <div class="grid grid-cols-2">
                                         <div class="px-4 py-2 font-semibold">Email</div>
                                         <div class="px-4 py-2">
-                                            <a class="text-blue-800" href="mailto:kevinwes11@gmail.com">kevinwes11@gmail.com</a>
+                                            <a class="text-blue-800"
+                                                href="mailto:kevinwes11@gmail.com">kevinwes11@gmail.com</a>
                                         </div>
                                     </div>
                                     <div class="grid grid-cols-2">
@@ -102,12 +105,12 @@
                             </div>
                         </div>
                         <!-- End of about section -->
-        
+
                         <div class="my-4"></div>
-        
+
                         <!-- Experience and education -->
                         <div class="bg-white p-3 shadow-sm rounded-sm">
-        
+
                             <div class="grid grid-cols-2">
                                 <div>
                                     <div class="flex items-center space-x-2 font-semibold text-gray-900 leading-8 mb-3">
@@ -180,4 +183,4 @@
             </div>
         </div>
     </x-card>
-</x-layout>    
+</x-layout>
