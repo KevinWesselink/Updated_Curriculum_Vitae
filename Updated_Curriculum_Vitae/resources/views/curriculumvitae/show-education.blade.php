@@ -16,8 +16,13 @@
                 <div class="border border-gray-200 w-full mb-6"></div>
                 <div>
                     <h3 class="text-3xl font-bold mb-4">
-                        Wat heb ik er geleerd?
+                        Wat heb ik er geleerd of gedaan?
                     </h3>
+                    <p class="text-l">{{ $education->smallExplanation1 }}</p>
+                    <p class="text-l">{{ $education->smallExplanation2 }}</p>
+                    <p class="text-l">{{ $education->smallExplanation3 }}</p>
+                    <p class="text-l">{{ $education->smallExplanation4 }}</p>
+                    <p class="text-l">{{ $education->smallExplanation5 }}</p>
                 </div>
             </div>
         </x-card>
