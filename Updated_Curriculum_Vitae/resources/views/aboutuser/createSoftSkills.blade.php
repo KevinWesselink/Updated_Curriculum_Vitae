@@ -7,7 +7,7 @@
             <p class="mb-4">Voeg een soft skill toe aan je cv</p>
         </header>
 
-        <form method="POST" action="/courses" enctype="multipart/form-data">
+        <form method="POST" action="/softSkills" enctype="multipart/form-data">
             @csrf
             <div class="mb-6">
                 <label for="skillName" class="inline-block text-lg mb-2">Naam van soft skill</label>
