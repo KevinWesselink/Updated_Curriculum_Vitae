@@ -252,6 +252,15 @@ class CurriculumVitaeController extends Controller
         return redirect('/')->with('message', 'Cursus verwijderd');
     }
 
+    // Show Create Programming Form
+    public function createProgramming() {
+        return view('aboutuser.createProgramming');
+    }
+
+    // Show Create SoftSkills Form
+    public function createSoftSkills() {
+        return view('aboutuser.createSoftSkills');
+    }
 
     // Return Manage Page View
     public function manage() {
