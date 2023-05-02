@@ -54,12 +54,6 @@ Route::post('/experiences', [CurriculumVitaeController::class, 'storeExp'])->mid
 // Show Create Education Form
 Route::get('create/education', [CurriculumVitaeController::class, 'createEdu'])->middleware('auth');
 
-// Show Create Programming Form
-Route::get('/create/programming', [CurriculumVitaeController::class, 'createProgramming'])->middleware('auth');
-
-// Show Create SoftSkills Form
-Route::get('/create/softSkills', [CurriculumVitaeController::class, 'createSoftSkills'])->middleware('auth');
-
 // Store Education Data
 Route::post('/educations', [CurriculumVitaeController::class, 'storeEdu'])->middleware('auth');
 
@@ -68,6 +62,18 @@ Route::get('create/courses', [CurriculumVitaeController::class, 'createCrs'])->m
 
 // Store Course Data
 Route::post('/courses', [CurriculumVitaeController::class, 'storeCrs'])->middleware('auth');
+
+// Show Create Programming Form
+Route::get('/create/programming', [CurriculumVitaeController::class, 'createProgramming'])->middleware('auth');
+
+// Store Programming Data
+Route::post('/programming', [CurriculumVitaeController::class, 'storeProgramming'])->middleware('auth');
+
+// Show Create SoftSkills Form
+Route::get('/create/softSkills', [CurriculumVitaeController::class, 'createSoftSkills'])->middleware('auth');
+
+// Store SoftSkills Data
+Route::post('/softSkills', [CurriculumVitaeController::class, 'storeSoftSkills'])->middleware('auth');
 
 // Show Single Experience
 Route::get('/experience/{experience}', [CurriculumVitaeController::class, 'showExp']);
