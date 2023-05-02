@@ -121,9 +121,9 @@
                                         @foreach ($Programming as $Programming)
                                             <ul class="list-inside space-y-2">
                                                 <li>
-                                                    <x-dropdownJava :programming="$Programming" />
-                                                </li>    
-                                            </ul>    
+                                                    <x-dropdownProgramming :programming="$Programming" />
+                                                </li>
+                                            </ul>
                                         @endforeach
                                     @else
                                         <p>Geen programmeerervaringen gevonden.</p>
@@ -167,7 +167,18 @@
                                         <i class="fa-solid fa-book"></i>
                                         <span class="tracking-wide">Andere Ervaring</span>
                                     </div>
-                                    <ul class="list-inside space-y-2">
+                                    @unless ($SoftSkills->count() == 0)
+                                        @foreach ($SoftSkills as $SoftSkills)
+                                            <ul class="list-inside space-y-2">
+                                                <li>
+                                                    <x-dropdownSoftSkills :softskills="$SoftSkills" />
+                                                </li>
+                                            </ul>
+                                        @endforeach
+                                    @else
+                                        <p>Geen soft skills gevonden.</p>
+                                    @endunless
+                                    {{-- <ul class="list-inside space-y-2">
                                         <li>
                                             <div class="text-teal-600">Agile/Scrum</div>
                                             <div class="text-gray-500 text-xs">Augustus 2020 - Juni 2022</div>
@@ -183,7 +194,7 @@
                                             <div class="text-gray-500 text-xs">November 2020 - Juni 2021</div>
                                             <div class="text-gray-500 text-xs">November 2021 - Juni 2022</div>
                                         </li>
-                                    </ul>
+                                    </ul> --}}
                                 </div>
                             </div>
                             <!-- End of Experience and education grid -->
