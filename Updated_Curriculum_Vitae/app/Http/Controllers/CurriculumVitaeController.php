@@ -5,6 +5,8 @@ namespace App\Http\Controllers;
 use App\Models\Courses;
 use App\Models\Education;
 use App\Models\Experience;
+use App\Models\Programming;
+use App\Models\SoftSkills;
 use Illuminate\Http\Request;
 use Illuminate\Validation\Rule;
 
@@ -252,15 +254,160 @@ class CurriculumVitaeController extends Controller
         return redirect('/')->with('message', 'Cursus verwijderd');
     }
 
+
+
+
+    // Programming starts here
+
+
     // Show Create Programming Form
     public function createProgramming() {
         return view('aboutuser.createProgramming');
     }
 
+    // Store Programming Data
+    public function storeProgramming(Request $request) {
+        $formFields = $request->validate([
+            'languageName' => 'required',
+            'experienceLevel' => 'required',
+            'smallExplanation1' => 'required',
+            'smallExplanation2' => '',
+            'smallExplanation3' => '',
+            'smallExplanation4' => '',
+            'smallExplanation5' => '',
+            'startedWith' => 'required',
+            'workedWithUntil' => 'required',
+        ]);
+
+        $formFields['user_id'] = auth()->id();
+
+        Programming::create($formFields);
+
+        return back()->with('message', 'Nieuwe programmeerervaring aangemaakt.');
+    }
+
+    // Show Edit Programming Form
+    public function editProgramming(Courses $courses) {
+        return view('curriculumvitae.editCourses', ['courses' => $courses]);
+    }
+
+    // Update Programming Data
+    public function updateProgramming(Request $request, Courses $courses) {
+
+        // Make sure logged in user is owner
+        if ($courses->user_id != auth()->id()) {
+            abort(403, 'Je bent niet de eigenaar van deze cursus.');
+        }
+
+        $formFields = $request->validate([
+            'educatorName' => 'required',
+            'courseName' => 'required',
+            'smallExplanation1' => 'required',
+            'smallExplanation2' => '',
+            'smallExplanation3' => '',
+            'smallExplanation4' => '',
+            'smallExplanation5' => '',
+            'validityEarned' => 'required',
+            'validUntil' => 'required',
+            'certificationLocation' => 'required',
+        ]);
+
+        $courses->update($formFields);
+
+        return back()->with('message', 'Cursus geüpdatet');
+    }
+
+    // Delete Programming
+    public function destroyProgramming(Courses $courses) {
+        // Make sure logged in user is owner
+        if ($courses->user_id != auth()->id()) {
+            abort(403, 'Je bent niet de eigenaar van deze cursus');
+        }
+
+        $courses->delete();
+        return redirect('/')->with('message', 'Cursus verwijderd');
+    }
+
+
+
+
+    // Soft Skills starts here
+
+
+
     // Show Create SoftSkills Form
     public function createSoftSkills() {
         return view('aboutuser.createSoftSkills');
     }
+
+    // Store Soft Skills Data
+    public function storeSoftSkills(Request $request) {
+        $formFields = $request->validate([
+            'skillName' => 'required',
+            'experienceLevel' => 'required',
+            'smallExplanation1' => 'required',
+            'smallExplanation2' => '',
+            'smallExplanation3' => '',
+            'smallExplanation4' => '',
+            'smallExplanation5' => '',
+            'startedWith' => 'required',
+            'workedWithUntil' => 'required',
+        ]);
+
+        $formFields['user_id'] = auth()->id();
+
+        SoftSkills::create($formFields);
+
+        return back()->with('message', 'Nieuwe soft skill aangemaakt.');
+    }
+
+    // Show Edit Programming Form
+    public function editSoftSkills(Courses $courses) {
+        return view('curriculumvitae.editCourses', ['courses' => $courses]);
+    }
+
+    // Update Programming Data
+    public function updateSoftSkills(Request $request, Courses $courses) {
+
+        // Make sure logged in user is owner
+        if ($courses->user_id != auth()->id()) {
+            abort(403, 'Je bent niet de eigenaar van deze cursus.');
+        }
+
+        $formFields = $request->validate([
+            'educatorName' => 'required',
+            'courseName' => 'required',
+            'smallExplanation1' => 'required',
+            'smallExplanation2' => '',
+            'smallExplanation3' => '',
+            'smallExplanation4' => '',
+            'smallExplanation5' => '',
+            'validityEarned' => 'required',
+            'validUntil' => 'required',
+            'certificationLocation' => 'required',
+        ]);
+
+        $courses->update($formFields);
+
+        return back()->with('message', 'Cursus geüpdatet');
+    }
+
+    // Delete Programming
+    public function destroySoftSkills(Courses $courses) {
+        // Make sure logged in user is owner
+        if ($courses->user_id != auth()->id()) {
+            abort(403, 'Je bent niet de eigenaar van deze cursus');
+        }
+
+        $courses->delete();
+        return redirect('/')->with('message', 'Cursus verwijderd');
+    }
+
+
+
+
+    // Nav Bar pages start here
+
 
     // Return Manage Page View
     public function manage() {
