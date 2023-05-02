@@ -416,7 +416,10 @@ class CurriculumVitaeController extends Controller
 
     // Return About Owner Page View
     public function aboutUser() {
-        return view('users.aboutUser');
+        return view('users.aboutUser', [
+            $Programming = Programming::latest()->get(),
+            $SoftSkills = SoftSkills::latest()->get()
+        ])->with('Programming', $Programming)->with('SoftSkills', $SoftSkills);
     }
 
     // Return About CurriculumVitae Page View

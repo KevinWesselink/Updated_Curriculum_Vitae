@@ -117,10 +117,21 @@
                                         <i class="fa-solid fa-book"></i>
                                         <span class="tracking-wide">Programmeer Ervaring</span>
                                     </div>
-                                    <ul class="list-inside space-y-2">
+                                    @unless ($Programming->count() == 0)
+                                        @foreach ($Programming as $Programming)
+                                            <ul class="list-inside space-y-2">
+                                                <li>
+                                                    <x-dropdownJava :programming="$Programming" />
+                                                </li>    
+                                            </ul>    
+                                        @endforeach
+                                    @else
+                                        <p>Geen programmeerervaringen gevonden.</p>
+                                    @endunless
+                                    {{-- <ul class="list-inside space-y-2">
                                         <li>
-                                            {{-- <div class="text-teal-600">Java</div>
-                                            <div class="text-gray-500 text-xs">Augustus 2020 - Februari 2022</div> --}}
+                                            <div class="text-teal-600">Java</div>
+                                            <div class="text-gray-500 text-xs">Augustus 2020 - Februari 2022</div>
                                             <x-dropdownJava></x-dropdownJava>
                                         </li>
                                         <li>
@@ -149,7 +160,7 @@
                                             <div class="text-gray-500 text-xs">Februari 2021 - Juni 2021</div>
                                             <div class="text-gray-500 text-xs">Maart 2023 - Heden</div>
                                         </li>
-                                    </ul>
+                                    </ul> --}}
                                 </div>
                                 <div>
                                     <div class="flex items-center space-x-2 font-semibold text-gray-900 leading-8 mb-3">
