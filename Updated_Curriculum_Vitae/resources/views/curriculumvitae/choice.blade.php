@@ -10,4 +10,12 @@
     <x-card class="p-1 max-w-lg mx-auto m-6">
         <a href="/create/courses" class="bg-laravel text-white py-2 px-5">Voeg een nieuwe cursus toe</a>
     </x-card>
+
+    <x-card class="p-1 max-w-lg mx-auto m-6">
+        <a href="/create/programming" class="bg-laravel text-white py-2 px-5">Voeg een nieuwe programmeerervaring toe</a>
+    </x-card>
+
+    <x-card class="p-1 max-w-lg mx-auto m-6">
+        <a href="/create/softSkills" class="bg-laravel text-white py-2 px-5">Voeg een nieuwe soft skill toe</a>
+    </x-card>
 </x-layout>    
