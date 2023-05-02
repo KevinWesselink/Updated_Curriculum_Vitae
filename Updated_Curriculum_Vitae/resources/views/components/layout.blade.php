@@ -26,7 +26,7 @@
 </head>
 
 <body class="mb-48">
-    <nav class="flex justify-between items-center mb-4">
+    <nav class="flex justify-between items-center mt-4 mb-4">
         <a href="/" class="ml-6">
             <i class="fa-solid fa-house"></i> Home
         </a>
