@@ -283,7 +283,7 @@ class CurriculumVitaeController extends Controller
 
         Programming::create($formFields);
 
-        return back()->with('message', 'Nieuwe programmeerervaring aangemaakt.');
+        return redirect('/')->with('message', 'Nieuwe programmeerervaring aangemaakt.');
     }
 
     // Show Edit Programming Form
@@ -358,7 +358,7 @@ class CurriculumVitaeController extends Controller
 
         SoftSkills::create($formFields);
 
-        return back()->with('message', 'Nieuwe soft skill aangemaakt.');
+        return redirect('/')->with('message', 'Nieuwe soft skill aangemaakt.');
     }
 
     // Show Edit Programming Form
