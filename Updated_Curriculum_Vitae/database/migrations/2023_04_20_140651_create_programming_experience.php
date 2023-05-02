@@ -15,7 +15,7 @@ return new class extends Migration
             $table->id();
             $table->foreignId('user_id')->constrained()->onDelete('cascade');
             $table->String('languageName');
-            $table->integer('experienceLevel');
+            $table->String('experienceLevel');
             $table->longText('smallExplanation1');
             $table->longText('smallExplanation2')->nullable();
             $table->longText('smallExplanation3')->nullable();
