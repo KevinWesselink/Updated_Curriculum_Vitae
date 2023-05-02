@@ -12,7 +12,7 @@
             <div class="mb-6">
                 <label for="skillName" class="inline-block text-lg mb-2">Naam van soft skill</label>
                 <input type="text" class="border border-gray-200 rounded p-2 w-full" name="skillName"
-                placeholder="Bijvoorbeeld: Java, Javascript, PHP" value="{{ old('skillName') }}" />
+                placeholder="Bijvoorbeeld: Samenwerken, Agile/Scrum, Klantcontact" value="{{ old('skillName') }}" />
 
                 @error('skillName')
                     <p class="text-red-500 text-xs mt-1">{{ $message }}</p>
