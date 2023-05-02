@@ -10,21 +10,21 @@
         <form method="POST" action="/courses" enctype="multipart/form-data">
             @csrf
             <div class="mb-6">
-                <label for="educatorName" class="inline-block text-lg mb-2">Naam van opleider</label>
-                <input type="text" class="border border-gray-200 rounded p-2 w-full" name="educatorName"
-                value="{{ old('educatorName') }}" />
+                <label for="skillName" class="inline-block text-lg mb-2">Naam van soft skill</label>
+                <input type="text" class="border border-gray-200 rounded p-2 w-full" name="skillName"
+                placeholder="Bijvoorbeeld: Java, Javascript, PHP" value="{{ old('skillName') }}" />
 
-                @error('educatorName')
+                @error('skillName')
                     <p class="text-red-500 text-xs mt-1">{{ $message }}</p>
                 @enderror
             </div>
 
             <div class="mb-6">
-                <label for="courseName" class="inline-block text-lg mb-2">Naam van cursus</label>
-                <input type="text" class="border border-gray-200 rounded p-2 w-full" name="courseName"
-                    placeholder="Bijvoorbeeld: Scrum, Agile" value="{{ old('courseName') }}" />
+                <label for="experienceLevel" class="inline-block text-lg mb-2">Hoeveelheid ervaring</label>
+                <input type="text" class="border border-gray-200 rounded p-2 w-full" name="experienceLevel"
+                    placeholder="Bijvoorbeeld: Onder Basis, Basis, Junior, Medior, Senior" value="{{ old('experienceLevel') }}" />
 
-                @error('courseName')
+                @error('experienceLevel')
                     <p class="text-red-500 text-xs mt-1">{{ $message }}</p>
                 @enderror
             </div>
@@ -80,38 +80,28 @@
             </div>
             
             <div class="mb-6">
-                <label for="validityEarned" class="inline-block text-lg mb-2">Geldig sinds</label>
-                <input type="text" class="border border-gray-200 rounded p-2 w-full" name="validityEarned"
-                    placeholder="Bijvoorbeeld: 1 oktober 2022" value="{{ old('validityEarned') }}" />
+                <label for="startedWith" class="inline-block text-lg mb-2">Mee begonnen</label>
+                <input type="text" class="border border-gray-200 rounded p-2 w-full" name="startedWith"
+                    placeholder="Bijvoorbeeld: Augustus 2020" value="{{ old('startedWith') }}" />
 
-                @error('validityEarned')
+                @error('startedWith')
                     <p class="text-red-500 text-xs mt-1">{{ $message }}</p>
                 @enderror
             </div>
 
             <div class="mb-6">
-                <label for="validUntil" class="inline-block text-lg mb-2">Geldig tot</label>
-                <input type="text" class="border border-gray-200 rounded p-2 w-full" name="validUntil"
-                    placeholder="Bijvoorbeeld: 1 oktober 2023, altijd geldig" value="{{ old('validUntil') }}" />
+                <label for="workedWithUntil" class="inline-block text-lg mb-2">Geëindigd met</label>
+                <input type="text" class="border border-gray-200 rounded p-2 w-full" name="workedWithUntil"
+                    placeholder="Bijvoorbeeld: Juni 2022" value="{{ old('workedWithUntil') }}" />
 
-                @error('validUntil')
-                    <p class="text-red-500 text-xs mt-1">{{ $message }}</p>
-                @enderror
-            </div>
-
-            <div class="mb-6">
-                <label for="certificationLocation" class="inline-block text-lg mb-2">Locatie</label>
-                <input type="text" class="border border-gray-200 rounded p-2 w-full" name="certificationLocation"
-                    placeholder="Bijvoorbeeld: Deventer" value="{{ old('certificationLocation') }}" />
-
-                @error('certificationLocation')
+                @error('workedWithUntil')
                     <p class="text-red-500 text-xs mt-1">{{ $message }}</p>
                 @enderror
             </div>
 
             <div class="mb-6">
                 <button class="bg-laravel text-white rounded py-2 px-4 hover:bg-black">
-                    Creëer cursus
+                    Creëer soft skill
                 </button>
 
                 <a href="/" class="text-black ml-4"> Terug </a>
