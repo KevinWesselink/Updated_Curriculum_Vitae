@@ -84,6 +84,14 @@ Route::get('/education/{education}', [CurriculumVitaeController::class, 'showEdu
 // Show Single Courses
 Route::get('/courses/{courses}', [CurriculumVitaeController::class, 'showCrs']);
 
+
+
+/*
+  Edit Form, Update, Delete
+*/
+
+
+
 // Show Edit Experience Form
 Route::get('/experience/{experience}/edit', [CurriculumVitaeController::class, 'editExp'])->middleware('auth');
 
@@ -110,6 +118,31 @@ Route::put('/courses/{courses}', [CurriculumVitaeController::class, 'updateCrs']
 
 // Delete Courses
 Route::delete('/courses/{courses}', [CurriculumVitaeController::class, 'destroyCrs'])->middleware('auth');
+
+// Show Edit Programming Form
+Route::get('/programming/{programming}/edit', [CurriculumVitaeController::class, 'editProgramming'])->middleware('auth');
+
+// Update Programming
+Route::put('/programming/{programming}', [CurriculumVitaeController::class, 'updateProgramming'])->middleware('auth');
+
+// Delete Programming
+Route::delete('/programming/{programming}', [CurriculumVitaeController::class, 'destroyProgramming'])->middleware('auth');
+
+// Show Edit SoftSkills Form
+Route::get('/softskills/{softskills}/edit', [CurriculumVitaeController::class, 'editSoftSkills'])->middleware('auth');
+
+// Update SoftSkills
+Route::put('/softskills/{softskills}', [CurriculumVitaeController::class, 'updateSoftSkills'])->middleware('auth');
+
+// Delete SoftSkills
+Route::delete('/softskills/{softskills}', [CurriculumVitaeController::class, 'destroySoftSkills'])->middleware('auth');
+
+
+
+
+/*
+  Nav Bar Pages
+*/
 
 // About Owner Page
 Route::get('/about/user', [CurriculumVitaeController::class, 'aboutUser']);
