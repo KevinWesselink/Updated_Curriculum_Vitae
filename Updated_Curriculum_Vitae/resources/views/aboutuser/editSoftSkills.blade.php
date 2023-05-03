@@ -7,7 +7,7 @@
             <p class="mb-4">Wijzig: {{ $softskills->skillName }}</p>
         </header>
 
-        <form method="POST" action="/softSkills/{{ $softskills->id }}" enctype="multipart/form-data">
+        <form method="POST" action="/softskills/{{ $softskills->id }}" enctype="multipart/form-data">
             @csrf
             <div class="mb-6">
                 <label for="skillName" class="inline-block text-lg mb-2">Naam van soft skill</label>
