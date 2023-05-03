@@ -128,39 +128,6 @@
                                     @else
                                         <p>Geen programmeerervaringen gevonden.</p>
                                     @endunless
-                                    {{-- <ul class="list-inside space-y-2">
-                                        <li>
-                                            <div class="text-teal-600">Java</div>
-                                            <div class="text-gray-500 text-xs">Augustus 2020 - Februari 2022</div>
-                                            <x-dropdownJava></x-dropdownJava>
-                                        </li>
-                                        <li>
-                                            <div class="text-teal-600">PHP</div>
-                                            <div class="text-gray-500 text-xs">September 2022 - Heden</div>
-                                        </li>
-                                        <li>
-                                            <div class="text-teal-600">JavaScript</div>
-                                            <div class="text-gray-500 text-xs">November 2022 - Heden</div>
-                                        </li>
-                                        <li>
-                                            <div class="text-teal-600">HTML/CSS</div>
-                                            <div class="text-gray-500 text-xs">Augustus 2022 - Heden</div>
-                                        </li>
-                                        <li>
-                                            <div class="text-teal-600">React</div>
-                                            <div class="text-gray-500 text-xs">Februari 2022 - Juni 2022</div>
-                                        </li>
-                                        <li>
-                                            <div class="text-teal-600">Laravel</div>
-                                            <div class="text-gray-500 text-xs">Februari 2021 - Juni 2021</div>
-                                            <div class="text-gray-500 text-xs">Maart 2023 - Heden</div>
-                                        </li>
-                                        <li>
-                                            <div class="text-teal-600">Tailwind</div>
-                                            <div class="text-gray-500 text-xs">Februari 2021 - Juni 2021</div>
-                                            <div class="text-gray-500 text-xs">Maart 2023 - Heden</div>
-                                        </li>
-                                    </ul> --}}
                                 </div>
                                 <div>
                                     <div class="flex items-center space-x-2 font-semibold text-gray-900 leading-8 mb-3">
@@ -178,23 +145,6 @@
                                     @else
                                         <p>Geen soft skills gevonden.</p>
                                     @endunless
-                                    {{-- <ul class="list-inside space-y-2">
-                                        <li>
-                                            <div class="text-teal-600">Agile/Scrum</div>
-                                            <div class="text-gray-500 text-xs">Augustus 2020 - Juni 2022</div>
-                                            <div class="text-gray-500 text-xs">Oktober 2022 - November 2022</div>
-                                        </li>
-                                        <li>
-                                            <div class="text-teal-600">Klantcontact</div>
-                                            <div class="text-gray-500 text-xs">November 2020 - Juni 2021</div>
-                                            <div class="text-gray-500 text-xs">November 2021 - Juni 2022</div>
-                                        </li>
-                                        <li>
-                                            <div class="text-teal-600">Samenwerken</div>
-                                            <div class="text-gray-500 text-xs">November 2020 - Juni 2021</div>
-                                            <div class="text-gray-500 text-xs">November 2021 - Juni 2022</div>
-                                        </li>
-                                    </ul> --}}
                                 </div>
                             </div>
                             <!-- End of Experience and education grid -->
