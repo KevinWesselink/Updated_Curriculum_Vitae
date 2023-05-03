@@ -35,7 +35,23 @@
                         <div class="text-m font-bold">{{ $softskills->experienceLevel }}</div>
                         <div class="text-m font-bold">{{ $softskills->startedWith }} - {{ $softskills->workedWithUntil }}</div>
                     </div>
+
+                    @auth
+                    <div class="relative grid gap-6 bg-white px-2 py-2 sm:gap-2 sm:p-2">
+                        <a href="/softskills/{{ $softskills->id }}/edit">
+                            <i class="fa-solid fa-pencil"></i>Pas aan
+                        </a>
+            
+                        <form method="POST" action="/softskills/{{ $softskills->id }}">
+                            @csrf
+                            @method('DELETE')
+                            <button class="text-red-500"><i class="fa-solid fa-trash"></i>
+                                Verwijder</button>
+                        </form>
+                    </div>
+                    @endauth
                 </div>
             </div>
+        </div>    
     </nav>
 </div>

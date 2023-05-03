@@ -35,6 +35,21 @@
                         <div class="text-m font-bold">{{ $programming->experienceLevel }}</div>
                         <div class="text-m font-bold">{{ $programming->startedWith }} - {{ $programming->workedWithUntil }}</div>
                     </div>
+
+                    @auth
+                    <div class="relative grid gap-6 bg-white px-2 py-2 sm:gap-2 sm:p-2">
+                        <a href="/programming/{{ $programming->id }}/edit">
+                            <i class="fa-solid fa-pencil"></i>Pas aan
+                        </a>
+            
+                        <form method="POST" action="/programming/{{ $programming->id }}">
+                            @csrf
+                            @method('DELETE')
+                            <button class="text-red-500"><i class="fa-solid fa-trash"></i>
+                                Verwijder</button>
+                        </form>
+                    </div>
+                    @endauth
                 </div>
             </div>
     </nav>
