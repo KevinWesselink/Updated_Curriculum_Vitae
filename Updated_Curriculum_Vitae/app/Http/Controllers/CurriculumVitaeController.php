@@ -49,7 +49,7 @@ class CurriculumVitaeController extends Controller
 
         Experience::create($formFields);
 
-        return redirect('/')->with('message', 'Nieuwe werkervaring aangemaakt.');
+        return redirect('/')->with('message', 'Nieuwe werkervaring aangemaakt');
     }
 
     // Show Create Education Form
@@ -76,7 +76,7 @@ class CurriculumVitaeController extends Controller
 
         Education::create($formFields);
 
-        return redirect('/')->with('message', 'Nieuwe opleiding aangemaakt.');
+        return redirect('/')->with('message', 'Nieuwe opleiding aangemaakt');
     }
 
     // Show Create Courses Form
@@ -103,7 +103,7 @@ class CurriculumVitaeController extends Controller
 
         Courses::create($formFields);
 
-        return redirect('/')->with('message', 'Nieuwe cursus aangemaakt.');
+        return redirect('/')->with('message', 'Nieuwe cursus aangemaakt');
     }
 
     // Show Single Experience
@@ -222,7 +222,7 @@ class CurriculumVitaeController extends Controller
 
         // Make sure logged in user is owner
         if ($courses->user_id != auth()->id()) {
-            abort(403, 'Je bent niet de eigenaar van deze cursus.');
+            abort(403, 'Je bent niet de eigenaar van deze cursus');
         }
 
         $formFields = $request->validate([
@@ -283,49 +283,48 @@ class CurriculumVitaeController extends Controller
 
         Programming::create($formFields);
 
-        return redirect('/about/user')->with('message', 'Nieuwe programmeerervaring aangemaakt.');
+        return redirect('/about/user')->with('message', 'Nieuwe programmeerervaring aangemaakt');
     }
 
     // Show Edit Programming Form
-    public function editProgramming(Courses $courses) {
-        return view('curriculumvitae.editCourses', ['courses' => $courses]);
+    public function editProgramming(Programming $programming) {
+        return view('aboutuser.editProgramming', ['programming' => $programming]);
     }
 
     // Update Programming Data
-    public function updateProgramming(Request $request, Courses $courses) {
+    public function updateProgramming(Request $request, Programming $programming) {
 
         // Make sure logged in user is owner
-        if ($courses->user_id != auth()->id()) {
-            abort(403, 'Je bent niet de eigenaar van deze cursus.');
+        if ($programming->user_id != auth()->id()) {
+            abort(403, 'Je bent niet de eigenaar van deze programmeerervaring');
         }
 
         $formFields = $request->validate([
-            'educatorName' => 'required',
-            'courseName' => 'required',
+            'languageName' => 'required',
+            'experienceLevel' => 'required',
             'smallExplanation1' => 'required',
             'smallExplanation2' => '',
             'smallExplanation3' => '',
             'smallExplanation4' => '',
             'smallExplanation5' => '',
-            'validityEarned' => 'required',
-            'validUntil' => 'required',
-            'certificationLocation' => 'required',
+            'startedWith' => 'required',
+            'workedWithUntil' => 'required',
         ]);
 
-        $courses->update($formFields);
+        $programming->update($formFields);
 
-        return back()->with('message', 'Cursus geüpdatet');
+        return back()->with('message', 'Programmeerervaring geüpdatet');
     }
 
     // Delete Programming
-    public function destroyProgramming(Courses $courses) {
+    public function destroyProgramming(Programming $programming) {
         // Make sure logged in user is owner
-        if ($courses->user_id != auth()->id()) {
-            abort(403, 'Je bent niet de eigenaar van deze cursus');
+        if ($programming->user_id != auth()->id()) {
+            abort(403, 'Je bent niet de eigenaar van deze programmeerervaring');
         }
 
-        $courses->delete();
-        return redirect('/')->with('message', 'Cursus verwijderd');
+        $programming->delete();
+        return redirect('/about/user')->with('message', 'Programmeerervaring verwijderd');
     }
 
 
@@ -358,49 +357,48 @@ class CurriculumVitaeController extends Controller
 
         SoftSkills::create($formFields);
 
-        return redirect('/about/user')->with('message', 'Nieuwe soft skill aangemaakt.');
+        return redirect('/about/user')->with('message', 'Nieuwe soft skill aangemaakt');
     }
 
     // Show Edit Programming Form
-    public function editSoftSkills(Courses $courses) {
-        return view('curriculumvitae.editCourses', ['courses' => $courses]);
+    public function editSoftSkills(SoftSkills $softskills) {
+        return view('aboutuser.editSoftSkills', ['softskills' => $softskills]);
     }
 
     // Update Programming Data
-    public function updateSoftSkills(Request $request, Courses $courses) {
+    public function updateSoftSkills(Request $request, SoftSkills $softskills) {
 
         // Make sure logged in user is owner
-        if ($courses->user_id != auth()->id()) {
-            abort(403, 'Je bent niet de eigenaar van deze cursus.');
+        if ($softskills->user_id != auth()->id()) {
+            abort(403, 'Je bent niet de eigenaar van deze soft skill');
         }
 
         $formFields = $request->validate([
-            'educatorName' => 'required',
-            'courseName' => 'required',
+            'skillName' => 'required',
+            'experienceLevel' => 'required',
             'smallExplanation1' => 'required',
             'smallExplanation2' => '',
             'smallExplanation3' => '',
             'smallExplanation4' => '',
             'smallExplanation5' => '',
-            'validityEarned' => 'required',
-            'validUntil' => 'required',
-            'certificationLocation' => 'required',
+            'startedWith' => 'required',
+            'workedWithUntil' => 'required',
         ]);
 
-        $courses->update($formFields);
+        $softskills->update($formFields);
 
-        return back()->with('message', 'Cursus geüpdatet');
+        return back()->with('message', 'Soft skill geüpdatet');
     }
 
     // Delete Programming
-    public function destroySoftSkills(Courses $courses) {
+    public function destroySoftSkills(SoftSkills $softskills) {
         // Make sure logged in user is owner
-        if ($courses->user_id != auth()->id()) {
-            abort(403, 'Je bent niet de eigenaar van deze cursus');
+        if ($softskills->user_id != auth()->id()) {
+            abort(403, 'Je bent niet de eigenaar van deze soft skill');
         }
 
-        $courses->delete();
-        return redirect('/')->with('message', 'Cursus verwijderd');
+        $softskills->delete();
+        return redirect('/about/user')->with('message', 'Soft skill verwijderd');
     }
 
 
