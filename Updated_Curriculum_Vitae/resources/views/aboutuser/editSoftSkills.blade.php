@@ -9,6 +9,7 @@
 
         <form method="POST" action="/softskills/{{ $softskills->id }}" enctype="multipart/form-data">
             @csrf
+            @method('PUT')
             <div class="mb-6">
                 <label for="skillName" class="inline-block text-lg mb-2">Naam van soft skill</label>
                 <input type="text" class="border border-gray-200 rounded p-2 w-full" name="skillName"
