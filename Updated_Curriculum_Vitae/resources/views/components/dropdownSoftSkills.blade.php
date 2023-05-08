@@ -10,7 +10,7 @@
             <button @click="open = ! open" type="button"
                 class="group inline-flex items-center rounded-md bg-white text-base font-medium hover:text-teal-900"
                 aria-expanded="false">
-                <span>
+                <span class="w-48">
                     <div class="text-teal-600">{{ $softskills->skillName }}</div>
                     <div class="text-gray-500 text-xs p-1">{{ $softskills->startedWith }} - {{ $softskills->workedWithUntil }}</div>
                 </span>
