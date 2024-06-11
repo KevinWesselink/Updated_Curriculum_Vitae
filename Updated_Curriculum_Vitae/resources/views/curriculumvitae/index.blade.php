@@ -27,5 +27,14 @@
         @else
             <p>Geen cursussen gevonden.</p>
         @endunless
+
+        <h1 class="text-xl p-2 font-bold col-span-2">Stages</h1>
+        @unless($Internships->count() == 0)
+            @foreach ($Internships as $Internships)
+                <x-internships-card :internships="$Internships" />
+            @endforeach
+        @else
+            <p>Geen Stages gevonden.</p>
+        @endunless
     </div>
 </x-layout>

@@ -5,8 +5,9 @@ namespace App\Http\Controllers;
 use App\Models\Courses;
 use App\Models\Education;
 use App\Models\Experience;
-use App\Models\Programming;
+use App\Models\Internship;
 use App\Models\SoftSkills;
+use App\Models\Programming;
 use Illuminate\Http\Request;
 use Illuminate\Validation\Rule;
 
@@ -14,11 +15,12 @@ class CurriculumVitaeController extends Controller
 {
     // Show Homepage
     public function index() {
-            return view('curriculumvitae.index', [
-                $Experience = Experience::latest()->get(),
-                $Education = Education::latest()->get(),
-                $Courses = Courses::latest()->get()
-            ])->with('Experience', $Experience)->with('Education', $Education)->with('Courses', $Courses);
+        return view('curriculumvitae.index', [
+            $Experience = Experience::latest()->get(),
+            $Education = Education::latest()->get(),
+            $Courses = Courses::latest()->get(),
+            $Internships = Internship::latest()->get()
+        ])->with('Experience', $Experience)->with('Education', $Education)->with('Courses', $Courses)->with('Internships', $Internships);
     }
 
     // Show Choice Form
@@ -113,17 +115,24 @@ class CurriculumVitaeController extends Controller
         ]);
     }
 
-    // Show Single Experience
+    // Show Single Education
     public function showEdu(Education $education) {
         return view('curriculumvitae.show-education', [
             'education' => $education
         ]);
     }
 
-    // Show Single Experience
+    // Show Single Course
     public function showCrs(Courses $courses) {
         return view('curriculumvitae.show-courses', [
         'courses' => $courses
+        ]);
+    }
+
+    // Show Single Internship
+    public function showInternships(Internship $internships) {
+        return view('curriculumvitae.show-internships', [
+            'internships' => $internships
         ]);
     }
 
@@ -330,7 +339,7 @@ class CurriculumVitaeController extends Controller
 
 
 
-    // Soft Skills starts here
+    // SoftSkills starts here
 
 
 
@@ -339,7 +348,7 @@ class CurriculumVitaeController extends Controller
         return view('aboutuser.createSoftSkills');
     }
 
-    // Store Soft Skills Data
+    // Store SoftSkills Data
     public function storeSoftSkills(Request $request) {
         $formFields = $request->validate([
             'skillName' => 'required',
@@ -360,12 +369,12 @@ class CurriculumVitaeController extends Controller
         return redirect('/about/user')->with('message', 'Nieuwe soft skill aangemaakt');
     }
 
-    // Show Edit Programming Form
+    // Show Edit SoftSkills Form
     public function editSoftSkills(SoftSkills $softskills) {
         return view('aboutuser.editSoftSkills', ['softskills' => $softskills]);
     }
 
-    // Update Programming Data
+    // Update SoftSkills Data
     public function updateSoftSkills(Request $request, SoftSkills $softskills) {
 
         // Make sure logged in user is owner
@@ -390,7 +399,7 @@ class CurriculumVitaeController extends Controller
         return back()->with('message', 'Soft skill geüpdatet');
     }
 
-    // Delete Programming
+    // Delete SoftSkills
     public function destroySoftSkills(SoftSkills $softskills) {
         // Make sure logged in user is owner
         if ($softskills->user_id != auth()->id()) {
@@ -402,6 +411,83 @@ class CurriculumVitaeController extends Controller
     }
 
 
+
+
+
+    // Internships start here
+
+
+    
+    // Show Internships page
+    public function createInternship() {
+        return view('curriculumvitae.createInternship');
+    }
+
+    // Store Internships Data
+    public function storeInternship(Request $request) {
+        $formFields = $request->validate([
+            'companyName' => 'required',
+            'functionName' => 'required',
+            'smallExplanation1' => 'required',
+            'smallExplanation2' => '',
+            'smallExplanation3' => '',
+            'smallExplanation4' => '',
+            'smallExplanation5' => '',
+            'internshipStartedAt' => 'required|date',
+            'internshipEndedAt' => 'required|date|after_or_equal:internshipStartedAt',
+            'finalAssessment' => 'required',
+            'companyLocation' => 'required',
+        ]);
+
+        $formFields['user_id'] = auth()->id();
+
+        Internship::create($formFields);
+
+        return redirect('/')->with('message', 'Nieuwe stage aangemaakt');
+    }
+
+    // Show Edit Internships Form
+    public function editInternships(Internship $internships) {
+        return view('curriculumvitae.editInternships', ['internships' => $internships]);
+    }
+
+    // Update Internships Data
+    public function updateInternships(Request $request, Internship $internships) {
+
+        // Make sure logged in user is owner
+        if ($internships->user_id != auth()->id()) {
+            abort(403, 'Je bent niet de eigenaar van deze stage');
+        }
+
+        $formFields = $request->validate([
+            'companyName' => 'required',
+            'functionName' => 'required',
+            'smallExplanation1' => 'required',
+            'smallExplanation2' => '',
+            'smallExplanation3' => '',
+            'smallExplanation4' => '',
+            'smallExplanation5' => '',
+            'internshipStartedAt' => 'required|date',
+            'internshipEndedAt' => 'required|date|after_or_equal:internshipStartedAt',
+            'finalAssessment' => 'required',
+            'companyLocation' => 'required',
+        ]);
+
+        $internships->update($formFields);
+
+        return back()->with('message', 'Stage geüpdatet');
+    }
+
+    // Delete Internships
+    public function destroyInternships(Internship $internships) {
+        // Make sure logged in user is owner
+        if ($internships->user_id != auth()->id()) {
+            abort(403, 'Je bent niet de eigenaar van deze stage');
+        }
+
+        $internships->delete();
+        return redirect('/')->with('message', 'Stage verwijderd');
+    }
 
 
     // Nav Bar pages start here

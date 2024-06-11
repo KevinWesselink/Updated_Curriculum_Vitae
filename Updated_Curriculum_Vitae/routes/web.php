@@ -75,6 +75,12 @@ Route::get('/create/softSkills', [CurriculumVitaeController::class, 'createSoftS
 // Store SoftSkills Data
 Route::post('/softSkills', [CurriculumVitaeController::class, 'storeSoftSkills'])->middleware('auth');
 
+// Show Create Internships Form
+Route::get('/create/internships', [CurriculumVitaeController::class, 'createInternship'])->middleware('auth');
+
+// Store Internship Data
+Route::post('internships', [CurriculumVitaeController::class, 'storeInternship'])->middleware('auth');
+
 // Show Single Experience
 Route::get('/experience/{experience}', [CurriculumVitaeController::class, 'showExp']);
 
@@ -83,6 +89,9 @@ Route::get('/education/{education}', [CurriculumVitaeController::class, 'showEdu
 
 // Show Single Courses
 Route::get('/courses/{courses}', [CurriculumVitaeController::class, 'showCrs']);
+
+// Show Single Internship
+Route::get('internships/{internships}', [CurriculumVitaeController::class, 'showInternships']);
 
 
 
@@ -144,6 +153,18 @@ Route::put('/softskills/{softskills}', [CurriculumVitaeController::class, 'updat
 
 // Delete SoftSkills
 Route::delete('/softskills/{softskills}', [CurriculumVitaeController::class, 'destroySoftSkills'])->middleware('auth');
+
+
+
+
+// Show Edit Internships Form
+Route::get('/internships/{internships}/edit', [CurriculumVitaeController::class, 'editInternships'])->middleware('auth');
+
+// Update Internships
+Route::put('/internships/{internships}', [CurriculumVitaeController::class, 'updateInternships'])->middleware('auth');
+
+// Delete Internships
+Route::delete('/internships/{internships}', [CurriculumVitaeController::class, 'destroyInternships'])->middleware('auth');
 
 
 
