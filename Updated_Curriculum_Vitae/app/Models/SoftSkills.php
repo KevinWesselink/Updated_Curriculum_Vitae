@@ -9,7 +9,17 @@ class SoftSkills extends Model
 {
     use HasFactory;
 
-    protected $fillable = ['skillName', 'experienceLevel', 'smallExplanation1', 'smallExplanation2', 'smallExplanation3', 'smallExplanation4', 'smallExplanation5', 'startedWith', 'workedWithUntil', 'user_id'];
+    protected $fillable = [
+        'skillName',
+        'experienceLevel', 
+        'smallExplanation1',
+        'smallExplanation2',
+        'smallExplanation3',
+        'smallExplanation4',
+        'smallExplanation5',
+        'startedWith',
+        'workedWithUntil'
+    ];
 
     protected $table = "softskills";
 }

@@ -1,8 +1,9 @@
 <?php
 
-use App\Http\Controllers\CurriculumVitaeController;
-use App\Http\Controllers\UserController;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\UserController;
+use App\Http\Controllers\SearchController;
+use App\Http\Controllers\CurriculumVitaeController;
 
 /*
 |--------------------------------------------------------------------------
@@ -108,7 +109,7 @@ Route::get('/experience/{experience}/edit', [CurriculumVitaeController::class, '
 Route::put('/experience/{experience}', [CurriculumVitaeController::class, 'updateExp'])->middleware('auth');
 
 // Delete Experience
-Route::delete('/experience/{experience}', [CurriculumVitaeController::class, 'destroyExp'])->middleware('auth');
+Route::delete('/experience/{experience}/delete', [CurriculumVitaeController::class, 'destroyExp'])->middleware('auth');
 
 
 
@@ -119,7 +120,7 @@ Route::get('/education/{education}/edit', [CurriculumVitaeController::class, 'ed
 Route::put('/education/{education}', [CurriculumVitaeController::class, 'updateEdu'])->middleware('auth');
 
 // Delete Education
-Route::delete('/education/{education}', [CurriculumVitaeController::class, 'destroyEdu'])->middleware('auth');
+Route::delete('/education/{education}/delete', [CurriculumVitaeController::class, 'destroyEdu'])->middleware('auth');
 
 
 
@@ -130,7 +131,7 @@ Route::get('/courses/{courses}/edit', [CurriculumVitaeController::class, 'editCr
 Route::put('/courses/{courses}', [CurriculumVitaeController::class, 'updateCrs'])->middleware('auth');
 
 // Delete Courses
-Route::delete('/courses/{courses}', [CurriculumVitaeController::class, 'destroyCrs'])->middleware('auth');
+Route::delete('/courses/{courses}/delete', [CurriculumVitaeController::class, 'destroyCrs'])->middleware('auth');
 
 
 
@@ -141,7 +142,7 @@ Route::get('/programming/{programming}/edit', [CurriculumVitaeController::class,
 Route::put('/programming/{programming}', [CurriculumVitaeController::class, 'updateProgramming'])->middleware('auth');
 
 // Delete Programming
-Route::delete('/programming/{programming}', [CurriculumVitaeController::class, 'destroyProgramming'])->middleware('auth');
+Route::delete('/programming/{programming}/delete', [CurriculumVitaeController::class, 'destroyProgramming'])->middleware('auth');
 
 
 
@@ -152,7 +153,7 @@ Route::get('/softskills/{softskills}/edit', [CurriculumVitaeController::class, '
 Route::put('/softskills/{softskills}', [CurriculumVitaeController::class, 'updateSoftSkills'])->middleware('auth');
 
 // Delete SoftSkills
-Route::delete('/softskills/{softskills}', [CurriculumVitaeController::class, 'destroySoftSkills'])->middleware('auth');
+Route::delete('/softskills/{softskills}/delete', [CurriculumVitaeController::class, 'destroySoftSkills'])->middleware('auth');
 
 
 
@@ -164,7 +165,7 @@ Route::get('/internships/{internships}/edit', [CurriculumVitaeController::class,
 Route::put('/internships/{internships}', [CurriculumVitaeController::class, 'updateInternships'])->middleware('auth');
 
 // Delete Internships
-Route::delete('/internships/{internships}', [CurriculumVitaeController::class, 'destroyInternships'])->middleware('auth');
+Route::delete('/internships/{internships}/delete', [CurriculumVitaeController::class, 'destroyInternships'])->middleware('auth');
 
 
 
@@ -173,11 +174,20 @@ Route::delete('/internships/{internships}', [CurriculumVitaeController::class, '
   Nav Bar Pages
 */
 
+// Search About Owner Page
+Route::get('/search', [SearchController::class, 'openSearchPage'])->name('searchPage');
+
+// Search Results Page
+Route::get('/search/results', [SearchController::class, 'search'])->name('search');
+
 // About Owner Page
-Route::get('/about/user', [CurriculumVitaeController::class, 'aboutUser']);
+Route::get('/about/user/{user}', [CurriculumVitaeController::class, 'aboutUser']);
 
 // About CurriculumVitae Page
 Route::get('/about/curriculumvitae', [CurriculumVitaeController::class, 'aboutCV']);
 
 // Manage Database Input
-Route::get('/manage', [CurriculumVitaeController::class, 'manage'])->middleware('auth');
+Route::get('/manage/{user}', [CurriculumVitaeController::class, 'manage'])->middleware('auth');
+
+// Change Locale
+Route::post('lang', [App\Http\Controllers\LanguageController::class, 'switchLang'])->name('lang.switch');

@@ -2,25 +2,28 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\User;
 use App\Models\Courses;
 use App\Models\Education;
+use App\Models\UserLinks;
 use App\Models\Experience;
 use App\Models\Internship;
 use App\Models\SoftSkills;
 use App\Models\Programming;
 use Illuminate\Http\Request;
 use Illuminate\Validation\Rule;
+use Illuminate\Support\Facades\DB;
 
 class CurriculumVitaeController extends Controller
 {
     // Show Homepage
     public function index() {
         return view('curriculumvitae.index', [
-            $Experience = Experience::latest()->get(),
-            $Education = Education::latest()->get(),
-            $Courses = Courses::latest()->get(),
-            $Internships = Internship::latest()->get()
-        ])->with('Experience', $Experience)->with('Education', $Education)->with('Courses', $Courses)->with('Internships', $Internships);
+            $experience = Experience::latest()->get(),
+            $education = Education::latest()->get(),
+            $courses = Courses::latest()->get(),
+            $internships = Internship::latest()->get()
+        ])->with('experience', $experience)->with('education', $education)->with('courses', $courses)->with('internships', $internships);
     }
 
     // Show Choice Form
@@ -47,9 +50,14 @@ class CurriculumVitaeController extends Controller
             'companyLocation' => 'required',
         ]);
 
-        $formFields['user_id'] = auth()->id();
+        $newExperience = Experience::create($formFields);
+        $experienceId = $newExperience->id;
 
-        Experience::create($formFields);
+        $experienceLinks = [];
+        $experienceLinks['user_id'] = auth()->id();
+        $experienceLinks['experience_id'] = $experienceId;
+
+        UserLinks::create($experienceLinks);
 
         return redirect('/')->with('message', 'Nieuwe werkervaring aangemaakt');
     }
@@ -74,9 +82,14 @@ class CurriculumVitaeController extends Controller
             'schoolLocation' => 'required',
         ]);
 
-        $formFields['user_id'] = auth()->id();
+        $newEducation = Education::create($formFields);
+        $educationId = $newEducation->id;
 
-        Education::create($formFields);
+        $educationLinks = [];
+        $educationLinks['user_id'] = auth()->id();
+        $educationLinks['education_id'] = $educationId;
+
+        UserLinks::create($educationLinks);
 
         return redirect('/')->with('message', 'Nieuwe opleiding aangemaakt');
     }
@@ -101,9 +114,14 @@ class CurriculumVitaeController extends Controller
             'certificationLocation' => 'required',
         ]);
 
-        $formFields['user_id'] = auth()->id();
+        $newCourse = Courses::create($formFields);
+        $courseId = $newCourse->id;
 
-        Courses::create($formFields);
+        $courseLinks = [];
+        $courseLinks['user_id'] = auth()->id();
+        $courseLinks['courses_id'] = $courseId;
+
+        UserLinks::create($courseLinks);
 
         return redirect('/')->with('message', 'Nieuwe cursus aangemaakt');
     }
@@ -144,8 +162,10 @@ class CurriculumVitaeController extends Controller
     // Update Experience Data
     public function updateExp(Request $request, Experience $experience) {
 
+        $userLinkId = UserLinks::where('experience_id', $experience->id)->value('user_id');
+
         // Make sure logged in user is owner
-        if ($experience->user_id != auth()->id()) {
+        if ($userLinkId != auth()->id()) {
             abort(403, 'Unauthorized Action');
         }
 
@@ -168,11 +188,15 @@ class CurriculumVitaeController extends Controller
 
     // Delete Experience
     public function destroyExp(Experience $experience) {
+
+        $userLinkId = UserLinks::where('experience_id', $experience->id)->value('user_id');
+
         // Make sure logged in user is owner
-        if ($experience->user_id != auth()->id()) {
+        if ($userLinkId != auth()->id()) {
             abort(403, 'Unauthorized Action');
         }
 
+        UserLinks::where('experience_id', $experience->id)->delete();
         $experience->delete();
         return redirect('/')->with('message', 'Werkervaring verwijderd');
     }
@@ -186,8 +210,10 @@ class CurriculumVitaeController extends Controller
     // Update Education Data
     public function updateEdu(Request $request, Education $education) {
 
+        $userLinkId = UserLinks::where('education_id', $education->id)->value('user_id');
+
         // Make sure logged in user is owner
-        if ($education->user_id != auth()->id()) {
+        if ($userLinkId != auth()->id()) {
             abort(403, 'Je bent niet de eigenaar van deze werkervaring');
         }
 
@@ -211,11 +237,15 @@ class CurriculumVitaeController extends Controller
 
     // Delete Education
     public function destroyEdu(Education $education) {
+
+        $userLinkId = UserLinks::where('education_id', $education->id)->value('user_id');
+
         // Make sure logged in user is owner
-        if ($education->user_id != auth()->id()) {
+        if ($userLinkId != auth()->id()) {
             abort(403, 'Je bent niet de eigenaar van deze opleiding');
         }
 
+        UserLinks::where('education_id', $education->id)->delete();
         $education->delete();
         return redirect('/')->with('message', 'Opleiding verwijderd');
     }
@@ -229,8 +259,10 @@ class CurriculumVitaeController extends Controller
     // Update Courses Data
     public function updateCrs(Request $request, Courses $courses) {
 
+        $userLinkId = UserLinks::where('courses_id', $courses->id)->value('user_id');
+
         // Make sure logged in user is owner
-        if ($courses->user_id != auth()->id()) {
+        if ($userLinkId != auth()->id()) {
             abort(403, 'Je bent niet de eigenaar van deze cursus');
         }
 
@@ -254,11 +286,15 @@ class CurriculumVitaeController extends Controller
 
     // Delete Courses
     public function destroyCrs(Courses $courses) {
+
+        $userLinkId = UserLinks::where('courses_id', $courses->id)->value('user_id');
+
         // Make sure logged in user is owner
-        if ($courses->user_id != auth()->id()) {
+        if ($userLinkId != auth()->id()) {
             abort(403, 'Je bent niet de eigenaar van deze cursus');
         }
 
+        UserLinks::where('courses_id', $courses->id)->delete();
         $courses->delete();
         return redirect('/')->with('message', 'Cursus verwijderd');
     }
@@ -288,11 +324,16 @@ class CurriculumVitaeController extends Controller
             'workedWithUntil' => 'required',
         ]);
 
-        $formFields['user_id'] = auth()->id();
+        $newProgramming = Programming::create($formFields);
+        $programmingId = $newProgramming->id;
 
-        Programming::create($formFields);
+        $programmingLinks = [];
+        $programmingLinks['user_id'] = auth()->id();
+        $programmingLinks['programming_id'] = $programmingId;
 
-        return redirect('/about/user')->with('message', 'Nieuwe programmeerervaring aangemaakt');
+        UserLinks::create($programmingLinks);
+
+        return redirect('/about/user/{id}')->with('message', 'Nieuwe programmeerervaring aangemaakt');
     }
 
     // Show Edit Programming Form
@@ -303,8 +344,10 @@ class CurriculumVitaeController extends Controller
     // Update Programming Data
     public function updateProgramming(Request $request, Programming $programming) {
 
+        $userLinkId = UserLinks::where('programming_id', $programming->id)->value('user_id');
+
         // Make sure logged in user is owner
-        if ($programming->user_id != auth()->id()) {
+        if ($userLinkId != auth()->id()) {
             abort(403, 'Je bent niet de eigenaar van deze programmeerervaring');
         }
 
@@ -327,13 +370,17 @@ class CurriculumVitaeController extends Controller
 
     // Delete Programming
     public function destroyProgramming(Programming $programming) {
+
+        $userLinkId = UserLinks::where('programming_id', $programming->id)->value('user_id');
+
         // Make sure logged in user is owner
-        if ($programming->user_id != auth()->id()) {
+        if ($userLinkId != auth()->id()) {
             abort(403, 'Je bent niet de eigenaar van deze programmeerervaring');
         }
 
+        UserLinks::where('programming_id', $programming->id)->delete();
         $programming->delete();
-        return redirect('/about/user')->with('message', 'Programmeerervaring verwijderd');
+        return redirect('/about/user/{id}')->with('message', 'Programmeerervaring verwijderd');
     }
 
 
@@ -362,11 +409,16 @@ class CurriculumVitaeController extends Controller
             'workedWithUntil' => 'required',
         ]);
 
-        $formFields['user_id'] = auth()->id();
+        $newSoftSkill = SoftSkills::create($formFields);
+        $softSkillId = $newSoftSkill->id;
 
-        SoftSkills::create($formFields);
+        $softSkillLink = [];
+        $softSkillLink['user_id'] = auth()->id();
+        $softSkillLink['softSkills_id'] = $softSkillId;
 
-        return redirect('/about/user')->with('message', 'Nieuwe soft skill aangemaakt');
+        UserLinks::create($softSkillLink);
+
+        return redirect('/about/user/{id}')->with('message', 'Nieuwe soft skill aangemaakt');
     }
 
     // Show Edit SoftSkills Form
@@ -377,8 +429,10 @@ class CurriculumVitaeController extends Controller
     // Update SoftSkills Data
     public function updateSoftSkills(Request $request, SoftSkills $softskills) {
 
+        $userLinkId = UserLinks::where('softskills_id', $softskills->id)->value('user_id');
+
         // Make sure logged in user is owner
-        if ($softskills->user_id != auth()->id()) {
+        if ($userLinkId != auth()->id()) {
             abort(403, 'Je bent niet de eigenaar van deze soft skill');
         }
 
@@ -401,13 +455,17 @@ class CurriculumVitaeController extends Controller
 
     // Delete SoftSkills
     public function destroySoftSkills(SoftSkills $softskills) {
+
+        $userLinkId = UserLinks::where('softskills_id', $softskills->id)->value('user_id');
+
         // Make sure logged in user is owner
-        if ($softskills->user_id != auth()->id()) {
+        if ($userLinkId != auth()->id()) {
             abort(403, 'Je bent niet de eigenaar van deze soft skill');
         }
 
+        UserLinks::where('softskills_id', $softskills->id)->delete();
         $softskills->delete();
-        return redirect('/about/user')->with('message', 'Soft skill verwijderd');
+        return redirect('/about/user/{id}')->with('message', 'Soft skill verwijderd');
     }
 
 
@@ -439,9 +497,14 @@ class CurriculumVitaeController extends Controller
             'companyLocation' => 'required',
         ]);
 
-        $formFields['user_id'] = auth()->id();
+        $newInternship = Internship::create($formFields);
+        $internshipId = $newInternship->id;
 
-        Internship::create($formFields);
+        $internshipLinks = [];
+        $internshipLinks['user_id'] = auth()->id();
+        $internshipLinks['internship_id'] = $internshipId;
+
+        UserLinks::create($internshipLinks);
 
         return redirect('/')->with('message', 'Nieuwe stage aangemaakt');
     }
@@ -454,8 +517,10 @@ class CurriculumVitaeController extends Controller
     // Update Internships Data
     public function updateInternships(Request $request, Internship $internships) {
 
+        $userLinkId = UserLinks::where('internship_id', $internships->id)->value('user_id');
+
         // Make sure logged in user is owner
-        if ($internships->user_id != auth()->id()) {
+        if ($userLinkId != auth()->id()) {
             abort(403, 'Je bent niet de eigenaar van deze stage');
         }
 
@@ -480,11 +545,15 @@ class CurriculumVitaeController extends Controller
 
     // Delete Internships
     public function destroyInternships(Internship $internships) {
+
+        $userLinkId = UserLinks::where('internship_id', $internships->id)->value('user_id');
+
         // Make sure logged in user is owner
-        if ($internships->user_id != auth()->id()) {
+        if ($userLinkId != auth()->id()) {
             abort(403, 'Je bent niet de eigenaar van deze stage');
         }
 
+        UserLinks::where('internship_id', $internships->id)->delete();
         $internships->delete();
         return redirect('/')->with('message', 'Stage verwijderd');
     }
@@ -495,15 +564,72 @@ class CurriculumVitaeController extends Controller
 
     // Return Manage Page View
     public function manage() {
-        return view('users.manage');
+        $userId = auth()->user()->id;
+    
+        $educations = DB::table('user_links')
+            ->join('education', 'user_links.education_id', '=', 'education.id')
+            ->where('user_links.user_id', $userId)
+            ->select('education.*')
+            ->get();
+    
+        $experiences = DB::table('user_links')
+            ->join('experience', 'user_links.experience_id', '=', 'experience.id')
+            ->where('user_links.user_id', $userId)
+            ->select('experience.*')
+            ->get();
+    
+        $courses = DB::table('user_links')
+            ->join('courses', 'user_links.courses_id', '=', 'courses.id')
+            ->where('user_links.user_id', $userId)
+            ->select('courses.*')
+            ->get();
+    
+        $internships = DB::table('user_links')
+            ->join('internships', 'user_links.internship_id', '=', 'internships.id')
+            ->where('user_links.user_id', $userId)
+            ->select('internships.*')
+            ->get();
+    
+        $programming = DB::table('user_links')
+            ->join('programming', 'user_links.programming_id', '=', 'programming.id')
+            ->where('user_links.user_id', $userId)
+            ->select('programming.*')
+            ->get();
+    
+        $softSkills = DB::table('user_links')
+            ->join('softskills', 'user_links.softskills_id', '=', 'softskills.id')
+            ->where('user_links.user_id', $userId)
+            ->select('softskills.*')
+            ->get();
+    
+        return view('users.manage')
+            ->with('educations', $educations)
+            ->with('experiences', $experiences)
+            ->with('courses', $courses)
+            ->with('internships', $internships)
+            ->with('programming', $programming)
+            ->with('softSkills', $softSkills);
     }
 
     // Return About Owner Page View
     public function aboutUser() {
-        return view('users.aboutUser', [
-            $Programming = Programming::latest()->get(),
-            $SoftSkills = SoftSkills::latest()->get()
-        ])->with('Programming', $Programming)->with('SoftSkills', $SoftSkills);
+
+        $userId = auth()->user()->id;
+        $user = User::find($userId);
+
+        $programming = DB::table('user_links')
+        ->join('programming', 'user_links.programming_id', '=', 'programming.id')
+        ->where('user_links.user_id', $userId)
+        ->select('programming.*')
+        ->get();
+
+        $softSkills = DB::table('user_links')
+            ->join('softskills', 'user_links.softskills_id', '=', 'softskills.id')
+            ->where('user_links.user_id', $userId)
+            ->select('softskills.*')
+            ->get();
+
+        return view('users.aboutUser')->with('programming', $programming)->with('softSkills', $softSkills)->with('user', $user);
     }
 
     // Return About CurriculumVitae Page View

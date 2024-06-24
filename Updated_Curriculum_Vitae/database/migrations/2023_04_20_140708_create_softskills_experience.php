@@ -13,7 +13,6 @@ return new class extends Migration
     {
         Schema::create('softSkills', function (Blueprint $table) {
             $table->id();
-            $table->foreignId('user_id')->constrained()->onDelete('cascade');
             $table->String('skillName');
             $table->String('experienceLevel');
             $table->longText('smallExplanation1');

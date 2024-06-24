@@ -9,7 +9,19 @@ class Internship extends Model
 {
     use HasFactory;
 
-    protected $fillable = ['companyName', 'companyLocation', 'functionName', 'smallExplanation1', 'smallExplanation2', 'smallExplanation3', 'smallExplanation4', 'smallExplanation5', 'internshipStartedAt', 'internshipEndedAt', 'finalAssessment', 'user_id'];
+    protected $fillable = [
+        'companyName', 
+        'companyLocation', 
+        'functionName', 
+        'smallExplanation1', 
+        'smallExplanation2', 
+        'smallExplanation3', 
+        'smallExplanation4', 
+        'smallExplanation5', 
+        'internshipStartedAt', 
+        'internshipEndedAt', 
+        'finalAssessment'
+    ];
 
     protected $table = "internships";
 }

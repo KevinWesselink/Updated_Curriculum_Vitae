@@ -13,8 +13,6 @@ return new class extends Migration
     {
         Schema::create('internships', function (Blueprint $table) {
             $table->id();
-            $table->foreignId('user_id')->constrained()->onDelete('cascade');
-            // naam bedrijf, functie student, id student, begin stage, eind stage, eindbeoordeling, small explanation min 5
             $table->String('companyName');
             $table->String('companyLocation');
             $table->String('functionName');

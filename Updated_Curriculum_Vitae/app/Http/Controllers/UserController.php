@@ -3,6 +3,13 @@
 namespace App\Http\Controllers;
 
 use App\Models\User;
+use App\Models\Courses;
+use App\Models\Countries;
+use App\Models\Education;
+use App\Models\Experience;
+use App\Models\Internship;
+use App\Models\SoftSkills;
+use App\Models\Programming;
 use Illuminate\Http\Request;
 use Illuminate\Validation\Rule;
 
@@ -10,13 +17,25 @@ class UserController extends Controller
 {
     // Show Register/Create Form
     public function create() {
-        return view('users.register');
+        $countries = Countries::all();
+
+        return view('users.register')->with('countries', $countries);
     }
 
     // Create New User
     public function store(Request $request) {
         $formFields = $request->validate([
-            'name' => ['required', 'min:3'],
+            'userName' => ['required', 'min:3'],
+            'firstName' => ['required', 'min:2'],
+            'lastName' => ['required', 'min:3'],
+            'sex' => ['required'],
+            'telephoneNumber' => ['required', 'min:8', 'integer'], 
+            'address' => ['required', 'min:3'],
+            'postalCode' => ['required', 'min:6', 'max:7'],
+            'city' => ['required', 'min:3'],
+            'country' => ['required'], // Specifieke postcode als land Nederland is
+            'dateOfBirth' => ['required', 'after_or_equal:1945-01-01'],
+            'currentProfession' => ['required', 'min:3'],
             'email' => ['required', 'email', Rule::unique('users', 'email')],
             'password' => 'required|confirmed|min:6'
         ]);
@@ -77,5 +96,20 @@ class UserController extends Controller
     // Relationship With Courses
     public function Courses() {
         return $this->hasMany(Courses::class, 'user_id');
+    }
+
+    // Relationship With Programming
+    public function Programming() {
+        return $this->hasMany(Programming::class, 'user_id');
+    }
+
+    // Relationship With Soft Skills
+    public function SoftSkills() {
+        return $this->hasMany(SoftSkills::class, 'user_id');
+    }
+
+    // Relationship With Internships
+    public function Internships() {
+        return $this->hasMany(Internship::class, 'user_id');
     }
 }

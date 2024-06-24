@@ -9,7 +9,17 @@ class Experience extends Model
 {
     use HasFactory;
 
-    protected $fillable = ['companyName', 'jobTitle', 'smallExplanation1', 'smallExplanation2', 'smallExplanation3', 'smallExplanation4', 'smallExplanation5', 'yearsWorked', 'companyLocation', 'user_id'];
+    protected $fillable = [
+        'companyName',
+        'jobTitle',
+        'smallExplanation1',
+        'smallExplanation2',
+        'smallExplanation3',
+        'smallExplanation4',
+        'smallExplanation5',
+        'yearsWorked',
+        'companyLocation'
+    ];
 
     protected $table = "experience";
 }

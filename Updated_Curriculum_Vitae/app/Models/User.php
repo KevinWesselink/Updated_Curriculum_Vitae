@@ -18,7 +18,17 @@ class User extends Authenticatable
      * @var array<int, string>
      */
     protected $fillable = [
-        'name',
+        'userName',
+        'firstName',
+        'lastName',
+        'sex',
+        'telephoneNumber',
+        'address',
+        'postalCode',
+        'city',
+        'country',
+        'dateOfBirth',
+        'currentProfession',
         'email',
         'password',
     ];
@@ -41,4 +51,35 @@ class User extends Authenticatable
     protected $casts = [
         'email_verified_at' => 'datetime',
     ];
+
+    public function educationLinks()
+    {
+        return $this->hasMany(UserLinks::class);
+    }
+
+    public function experienceLinks()
+    {
+        return $this->hasMany(UserLinks::class);
+    }
+
+    public function courseLinks()
+    {
+        return $this->hasMany(UserLinks::class);
+    }
+
+    public function internshipLinks()
+    {
+        return $this->hasMany(UserLinks::class);
+    }
+
+    public function programmingLinks()
+    {
+        return $this->hasMany(UserLinks::class);
+    }
+
+    public function softSkillsLinks()
+    {
+        return $this->hasMany(UserLinks::class);
+    }
+
 }

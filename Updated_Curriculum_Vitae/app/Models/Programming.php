@@ -9,7 +9,17 @@ class Programming extends Model
 {
     use HasFactory;
 
-    protected $fillable = ['languageName', 'experienceLevel', 'smallExplanation1', 'smallExplanation2', 'smallExplanation3', 'smallExplanation4', 'smallExplanation5', 'startedWith', 'workedWithUntil', 'user_id'];
+    protected $fillable = [
+        'languageName',
+        'experienceLevel',
+        'smallExplanation1',
+        'smallExplanation2',
+        'smallExplanation3',
+        'smallExplanation4',
+        'smallExplanation5',
+        'startedWith',
+        'workedWithUntil'
+    ];
 
     protected $table = "programming";
 }

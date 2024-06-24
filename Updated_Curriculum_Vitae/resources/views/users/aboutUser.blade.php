@@ -8,8 +8,7 @@
                 <div
                     class="flex flex-col max-w-screen-xl px-4 mx-auto md:items-center md:justify-between md:flex-row md:px-6 lg:px-8">
                     <div class="p-4 flex flex-row items-center justify-between">
-                        <p
-                            class="text-lg font-semibold tracking-widest uppercase rounded-lg focus:outline-none focus:shadow-outline">
+                        <p class="text-lg font-semibold tracking-widest uppercase rounded-lg focus:outline-none focus:shadow-outline">
                             Personalia
                         </p>
                     </div>
@@ -66,38 +65,38 @@
                                 <div class="grid md:grid-cols-2 text-sm">
                                     <div class="grid grid-cols-2">
                                         <div class="px-4 py-2 font-semibold">Voornaam</div>
-                                        <div class="px-4 py-2">Kevin</div>
+                                        <div class="px-4 py-2">{{ $user->firstName }}</div>
                                     </div>
                                     <div class="grid grid-cols-2">
                                         <div class="px-4 py-2 font-semibold">Achternaam</div>
-                                        <div class="px-4 py-2">Wesselink</div>
+                                        <div class="px-4 py-2">{{ $user->lastName }}</div>
                                     </div>
                                     <div class="grid grid-cols-2">
                                         <div class="px-4 py-2 font-semibold">Geslacht</div>
-                                        <div class="px-4 py-2">Man</div>
+                                        <div class="px-4 py-2">{{ $user->sex }}</div>
                                     </div>
                                     <div class="grid grid-cols-2">
                                         <div class="px-4 py-2 font-semibold">Telefoonnummer</div>
-                                        <div class="px-4 py-2">+31 06 31073764</div>
+                                        <div class="px-4 py-2">{{ $user->telephoneNumber }}</div>
                                     </div>
                                     <div class="grid grid-cols-2">
                                         <div class="px-4 py-2 font-semibold">Adres</div>
-                                        <div class="px-4 py-2">Meiberg 25</div>
+                                        <div class="px-4 py-2">{{ $user->address }}</div>
                                     </div>
                                     <div class="grid grid-cols-2">
                                         <div class="px-4 py-2 font-semibold">Postcode</div>
-                                        <div class="px-4 py-2">8111 CC Heeten</div>
+                                        <div class="px-4 py-2">{{ $user->postalCode }} {{ $user->city }}</div>
                                     </div>
                                     <div class="grid grid-cols-2">
                                         <div class="px-4 py-2 font-semibold">Email</div>
                                         <div class="px-4 py-2">
                                             <a class="text-blue-800"
-                                                href="mailto:kevinwes11@gmail.com">kevinwes11@gmail.com</a>
+                                                href="mailto:{{ $user->email }}">{{ $user->email }}</a>
                                         </div>
                                     </div>
                                     <div class="grid grid-cols-2">
                                         <div class="px-4 py-2 font-semibold">Geboortedatum</div>
-                                        <div class="px-4 py-2">21 januari 2001</div>
+                                        <div class="px-4 py-2">{{ date('d-m-Y', strtotime($user->dateOfBirth)) }}</div>
                                     </div>
                                 </div>
                             </div>
@@ -108,18 +107,17 @@
 
                         <!-- Experience and education -->
                         <div class="bg-white p-3 shadow-sm rounded-sm">
-
                             <div class="grid grid-cols-2">
                                 <div>
                                     <div class="flex items-center space-x-2 font-semibold text-gray-900 leading-8 mb-3">
                                         <i class="fa-solid fa-book"></i>
                                         <span class="tracking-wide">Programmeer Ervaring</span>
                                     </div>
-                                    @unless ($Programming->count() == 0)
-                                        @foreach ($Programming as $Programming)
+                                    @unless ($programming->count() == 0)
+                                        @foreach ($programming as $programming)
                                             <ul class="list-inside space-y-2">
                                                 <li>
-                                                    <x-dropdownProgramming :programming="$Programming" />
+                                                    <x-dropdownProgramming :programming="$programming" />
                                                 </li>
                                             </ul>
                                         @endforeach
@@ -132,11 +130,11 @@
                                         <i class="fa-solid fa-book"></i>
                                         <span class="tracking-wide">Andere Ervaring</span>
                                     </div>
-                                    @unless ($SoftSkills->count() == 0)
-                                        @foreach ($SoftSkills as $SoftSkills)
+                                    @unless ($softSkills->count() == 0)
+                                        @foreach ($softSkills as $softSkill)
                                             <ul class="list-inside space-y-2">
                                                 <li>
-                                                    <x-dropdownSoftSkills :softskills="$SoftSkills" />
+                                                    <x-dropdownSoftSkills :softSkill="$softSkill" />
                                                 </li>
                                             </ul>
                                         @endforeach

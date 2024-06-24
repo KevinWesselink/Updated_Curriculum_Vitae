@@ -125,7 +125,7 @@
                     Pas Stage aan
                 </button>
 
-                <a href="/" class="text-black ml-4"> Terug </a>
+                <a href="{{ url()->previous() }}" class="text-black ml-4"> Terug </a>
             </div>
         </form>
     </x-card>

@@ -32,7 +32,7 @@
                 <i class="fa-solid fa-pencil"></i>Pas aan
             </a>
 
-            <form method="POST" action="/education/{{ $education->id }}">
+            <form method="POST" action="/education/{{ $education->id }}/delete">
                 @csrf
                 @method('DELETE')
                 <button class="text-red-500"><i class="fa-solid fa-trash"></i>
