@@ -2,17 +2,17 @@
     <x-card class="p-10 max-w-lg mx-auto mt-24">
         <header class="text-center">
             <h2 class="text-2xl font-bold uppercase mb-1">
-                Maak een programmeerervaring aan
+                {{ __('add_entry.programming.create_programming') }}
             </h2>
-            <p class="mb-4">Voeg een programmeerervaring toe aan je cv</p>
+            <p class="mb-4">{{ __('add_entry.programming.add_programming') }}</p>
         </header>
 
         <form method="POST" action="/programming" enctype="multipart/form-data">
             @csrf
             <div class="mb-6">
-                <label for="languageName" class="inline-block text-lg mb-2">Naam van programmeertaal</label>
+                <label for="languageName" class="inline-block text-lg mb-2">{{ __('add_entry.programming.language_name') }}</label>
                 <input type="text" class="border border-gray-200 rounded p-2 w-full" name="languageName"
-                placeholder="Bijvoorbeeld: Java, Javascript, PHP" value="{{ old('languageName') }}" />
+                placeholder="{{ __('add_entry.programming.language_name_placeholder') }}" value="{{ old('languageName') }}" />
 
                 @error('languageName')
                     <p class="text-red-500 text-xs mt-1">{{ $message }}</p>
@@ -20,9 +20,9 @@
             </div>
 
             <div class="mb-6">
-                <label for="experienceLevel" class="inline-block text-lg mb-2">Hoeveelheid ervaring</label>
+                <label for="experienceLevel" class="inline-block text-lg mb-2">{{ __('add_entry.programming.experience_level') }}</label>
                 <input type="text" class="border border-gray-200 rounded p-2 w-full" name="experienceLevel"
-                    placeholder="Bijvoorbeeld: Onder Basis, Basis, Junior, Medior, Senior" value="{{ old('experienceLevel') }}" />
+                    placeholder="{{ __('add_entry.programming.experience_level_placeholder') }}" value="{{ old('experienceLevel') }}" />
 
                 @error('experienceLevel')
                     <p class="text-red-500 text-xs mt-1">{{ $message }}</p>
@@ -30,9 +30,9 @@
             </div>
 
             <div class="mb-6">
-                <label for="smallExplanation1" class="inline-block text-lg mb-2">Kleine uitleg</label>
+                <label for="smallExplanation1" class="inline-block text-lg mb-2">{{ __('add_entry.programming.small_explanation') }}</label>
                 <input type="text" class="border border-gray-200 rounded p-2 w-full" name="smallExplanation1"
-                    placeholder="Bijvoorbeeld: Ik heb leren samenwerken" value="{{ old('smallExplanation1') }}" />
+                    placeholder="{{ __('add_entry.programming.small_explanation_placeholder') }}" value="{{ old('smallExplanation1') }}" />
 
                 @error('smallExplanation1')
                     <p class="text-red-500 text-xs mt-1">{{ $message }}</p>
@@ -40,9 +40,9 @@
             </div>
 
             <div class="mb-6">
-                <label for="smallExplanation2" class="inline-block text-lg mb-2">Kleine uitleg</label>
+                <label for="smallExplanation2" class="inline-block text-lg mb-2">{{ __('add_entry.programming.small_explanation') }}</label>
                 <input type="text" class="border border-gray-200 rounded p-2 w-full" name="smallExplanation2"
-                    placeholder="Bijvoorbeeld: Ik heb leren samenwerken" value="{{ old('smallExplanation2') }}" />
+                    placeholder="{{ __('add_entry.programming.small_explanation_placeholder') }}" value="{{ old('smallExplanation2') }}" />
 
                 @error('smallExplanation2')
                     <p class="text-red-500 text-xs mt-1">{{ $message }}</p>
@@ -50,9 +50,9 @@
             </div>
 
             <div class="mb-6">
-                <label for="smallExplanation3" class="inline-block text-lg mb-2">Kleine uitleg</label>
+                <label for="smallExplanation3" class="inline-block text-lg mb-2">{{ __('add_entry.programming.small_explanation') }}</label>
                 <input type="text" class="border border-gray-200 rounded p-2 w-full" name="smallExplanation3"
-                    placeholder="Bijvoorbeeld: Ik heb leren samenwerken" value="{{ old('smallExplanation3') }}" />
+                    placeholder="{{ __('add_entry.programming.small_explanation_placeholder') }}" value="{{ old('smallExplanation3') }}" />
 
                 @error('smallExplanation3')
                     <p class="text-red-500 text-xs mt-1">{{ $message }}</p>
@@ -60,9 +60,9 @@
             </div>
 
             <div class="mb-6">
-                <label for="smallExplanation4" class="inline-block text-lg mb-2">Kleine uitleg</label>
+                <label for="smallExplanation4" class="inline-block text-lg mb-2">{{ __('add_entry.programming.small_explanation') }}</label>
                 <input type="text" class="border border-gray-200 rounded p-2 w-full" name="smallExplanation4"
-                    placeholder="Bijvoorbeeld: Ik heb leren samenwerken" value="{{ old('smallExplanation4') }}" />
+                    placeholder="{{ __('add_entry.programming.small_explanation_placeholder') }}" value="{{ old('smallExplanation4') }}" />
 
                 @error('smallExplanation4')
                     <p class="text-red-500 text-xs mt-1">{{ $message }}</p>
@@ -70,9 +70,9 @@
             </div>
 
             <div class="mb-6">
-                <label for="smallExplanation5" class="inline-block text-lg mb-2">Kleine uitleg</label>
+                <label for="smallExplanation5" class="inline-block text-lg mb-2">{{ __('add_entry.programming.small_explanation') }}</label>
                 <input type="text" class="border border-gray-200 rounded p-2 w-full" name="smallExplanation5"
-                    placeholder="Bijvoorbeeld: Ik heb leren samenwerken" value="{{ old('smallExplanation5') }}" />
+                    placeholder="{{ __('add_entry.programming.small_explanation_placeholder') }}" value="{{ old('smallExplanation5') }}" />
 
                 @error('smallExplanation5')
                     <p class="text-red-500 text-xs mt-1">{{ $message }}</p>
@@ -80,9 +80,9 @@
             </div>
             
             <div class="mb-6">
-                <label for="startedWith" class="inline-block text-lg mb-2">Mee begonnen</label>
+                <label for="startedWith" class="inline-block text-lg mb-2">{{ __('add_entry.programming.started_with') }}</label>
                 <input type="text" class="border border-gray-200 rounded p-2 w-full" name="startedWith"
-                    placeholder="Bijvoorbeeld: Augustus 2020" value="{{ old('startedWith') }}" />
+                    placeholder="{{ __('add_entry.programming.started_with_placeholder') }}" value="{{ old('startedWith') }}" />
 
                 @error('startedWith')
                     <p class="text-red-500 text-xs mt-1">{{ $message }}</p>
@@ -90,9 +90,9 @@
             </div>
 
             <div class="mb-6">
-                <label for="workedWithUntil" class="inline-block text-lg mb-2">Geëindigd met</label>
+                <label for="workedWithUntil" class="inline-block text-lg mb-2">{{ __('add_entry.programming.worked_with_until') }}</label>
                 <input type="text" class="border border-gray-200 rounded p-2 w-full" name="workedWithUntil"
-                    placeholder="Bijvoorbeeld: Juni 2022" value="{{ old('workedWithUntil') }}" />
+                    placeholder="{{ __('add_entry.programming.worked_with_until_placeholder') }}" value="{{ old('workedWithUntil') }}" />
 
                 @error('workedWithUntil')
                     <p class="text-red-500 text-xs mt-1">{{ $message }}</p>
@@ -101,10 +101,10 @@
 
             <div class="mb-6">
                 <button class="bg-laravel text-white rounded py-2 px-4 hover:bg-black">
-                    Creëer programmeerervaring
+                    {{ __('add_entry.programming.create_new_programming') }}
                 </button>
 
-                <a href="/" class="text-black ml-4"> Terug </a>
+                <a href="/" class="text-black ml-4"> {{ __('add_entry.default.back') }} </a>
             </div>
         </form>
     </x-card>
