@@ -18,12 +18,46 @@ class CurriculumVitaeController extends Controller
 {
     // Show Homepage
     public function index() {
+        if(auth()->user() != null) {
+            $userId = auth()->user()->id;
+
+            $experience = DB::table('user_links')
+            ->join('experience', 'user_links.experience_id', '=', 'experience.id')
+            ->where('user_links.user_id', $userId)
+            ->select('experience.*')
+            ->get();
+
+            $education = DB::table('user_links')
+            ->join('education', 'user_links.education_id', '=', 'education.id')
+            ->where('user_links.user_id', $userId)
+            ->select('education.*')
+            ->get();
+
+            $courses = DB::table('user_links')
+            ->join('courses', 'user_links.courses_id', '=', 'courses.id')
+            ->where('user_links.user_id', $userId)
+            ->select('courses.*')
+            ->get();
+
+            $internships = DB::table('user_links')
+                ->join('internships', 'user_links.internships_id', '=', 'internships.id')
+                ->where('user_links.user_id', $userId)
+                ->select('internships.*')
+                ->get();
+
+        } else {
+            $experience = Experience::get();
+            $education = Education::get();
+            $courses = Courses::get();
+            $internships = Internship::get();
+        }
+        
+
         return view('curriculumvitae.index', [
-            $experience = Experience::latest()->get(),
-            $education = Education::latest()->get(),
-            $courses = Courses::latest()->get(),
-            $internships = Internship::latest()->get()
-        ])->with('experience', $experience)->with('education', $education)->with('courses', $courses)->with('internships', $internships);
+        ])->with('experience', $experience)
+        ->with('education', $education)
+        ->with('courses', $courses)
+        ->with('internships', $internships);
     }
 
     // Show Choice Form

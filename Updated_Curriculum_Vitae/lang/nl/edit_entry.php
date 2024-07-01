@@ -1,11 +1,11 @@
 <?php
 
-// Dutch Translations for the Dutch versions of create(Entry).blade.php
+// Dutch Translations for the Dutch versions of edit(Entry).blade.php
 
 return [
     'experience' => [
-        'create_experience' => 'Maak een nieuwe ervaring aan',
-        'add_experience' => 'Voeg een nieuwe ervaring toe aan je CV',
+        'edit_experience_general' => 'Wijzig werkervaring',
+        'edit_this_experience' => 'Wijzig',
         'company_name' => 'Bedrijfsnaam',
         'job_title' => 'Functietitel',
         'job_title_placeholder' => 'Bijvoorbeeld: Senior Laravel Developer',
@@ -15,12 +15,12 @@ return [
         'years_worked_placeholder' => 'Bijvoorbeeld: Zomer 2017, Zomer 2018',
         'company_location' => 'Locatie van het bedrijf',
         'company_location_placeholder' => 'Bijvoorbeeld: Deventer',
-        'create_new_experience' => 'Maak ervaring aan',
+        'edit_experience' => 'Pas werkervaring aan',
     ],
 
     'education' => [
-        'create_education' => 'Maak een nieuwe opleiding aan',
-        'add_education' => 'Voeg een nieuwe opleiding toe aan je CV',
+        'edit_education_general' => 'Wijzig opleiding',
+        'edit_this_education' => 'Wijzig',
         'school_name' => 'Schoolnaam',
         'education_name' => 'Opleidingsnaam',
         'education_name_placeholder' => 'Bijvoorbeeld: Bachelor Informatica',
@@ -32,12 +32,12 @@ return [
         'education_status_placeholder' => 'Bijvoorbeeld: Afgestudeerd, Bezig',
         'school_location' => 'Locatie van de school',
         'school_location_placeholder' => 'Bijvoorbeeld: Amsterdam',
-        'create_new_education' => 'Maak opleiding aan',
+        'edit_education' => 'Pas opleiding aan',
     ],
 
     'course' => [
-        'create_course' => 'Maak een nieuwe cursus aan',
-        'add_course' => 'Voeg een nieuwe cursus toe aan je CV',
+        'edit_course_general' => 'Wijzig cursus',
+        'edit_this_course' => 'Wijzig',
         'educator_name' => 'Naam van de opleider',
         'course_name' => 'Cursusnaam',
         'course_name_placeholder' => 'Bijvoorbeeld: Gevorderde Laravel Cursus',
@@ -49,12 +49,12 @@ return [
         'valid_until_placeholder' => 'Bijvoorbeeld: 2025',
         'certification_location' => 'Locatie van certificering',
         'certification_location_placeholder' => 'Bijvoorbeeld: Online',
-        'create_new_course' => 'Maak cursus aan',
+        'edit_course' => 'Pas cursus aan',
     ],
 
     'internship' => [
-        'create_internship' => 'Maak een nieuwe stage aan',
-        'add_internship' => 'Voeg een nieuwe stage toe aan je CV',
+        'edit_internship_general' => 'Wijzig stage',
+        'edit_this_internship' => 'Wijzig',
         'company_name' => 'Bedrijfsnaam',
         'function_name' => 'Functienaam',
         'function_name_placeholder' => 'Bijvoorbeeld: Softwareontwikkelingsstagiair',
@@ -66,12 +66,12 @@ return [
         'final_assessment_placeholder' => 'Bijvoorbeeld: Uitstekend',
         'company_location' => 'Locatie van het bedrijf',
         'company_location_placeholder' => 'Bijvoorbeeld: Rotterdam',
-        'create_new_internship' => 'Maak stage aan',
+        'edit_internship' => 'Pas stage aan',
     ],
 
     'programming' => [
-        'create_programming' => 'Maak een nieuwe programmeervaardigheid aan',
-        'add_programming' => 'Voeg een nieuwe programmeervaardigheid toe aan je CV',
+        'edit_programming_general' => 'Wijzig programmeervaardigheid',
+        'edit_this_programming' => 'Wijzig',
         'language_name' => 'Naam van de taal',
         'language_name_placeholder' => 'Bijvoorbeeld: Python',
         'experience_level' => 'Ervaringsniveau',
@@ -80,14 +80,14 @@ return [
         'small_explanation_placeholder' => 'Bijvoorbeeld: Ik heb meerdere webapplicaties gebouwd',
         'started_with' => 'Begonnen met',
         'started_with_placeholder' => 'Bijvoorbeeld: 2019',
-        'worked_with_until' => 'Geëindigd op',
+        'worked_with_until' => 'Geëindigd met',
         'worked_with_until_placeholder' => 'Bijvoorbeeld: Heden',
-        'create_new_programming' => 'Maak programmeervaardigheid aan',
+        'edit_programming' => 'Wijzig programmeervaardigheid',
     ],
 
     'soft_skill' => [
-        'create_soft_skill' => 'Maak een nieuwe soft skill aan',
-        'add_soft_skill' => 'Voeg een nieuwe zachte vaardigheid toe aan je CV',
+        'edit_soft_skill_general' => 'Wijzig soft skill',
+        'edit_this_soft_skill' => 'Wijzig',
         'skill_name' => 'Naam van de vaardigheid',
         'skill_name_placeholder' => 'Bijvoorbeeld: Communicatie',
         'experience_level' => 'Ervaringsniveau',
@@ -96,9 +96,9 @@ return [
         'small_explanation_placeholder' => 'Bijvoorbeeld: Ik heb meerdere teamprojecten geleid',
         'started_with' => 'Begonnen met',
         'started_with_placeholder' => 'Bijvoorbeeld: 2018',
-        'worked_with_until' => 'Geëindigd op',
+        'worked_with_until' => 'Geëindigd met',
         'worked_with_until_placeholder' => 'Bijvoorbeeld: Heden',
-        'create_new_soft_skill' => 'Maak soft skill aan',
+        'edit_soft_skill' => 'Pas soft skill aan',
     ],
 
     'default' => [

@@ -9,7 +9,7 @@
                     class="flex flex-col max-w-screen-xl px-4 mx-auto md:items-center md:justify-between md:flex-row md:px-6 lg:px-8">
                     <div class="p-4 flex flex-row items-center justify-between">
                         <p class="text-lg font-semibold tracking-widest uppercase rounded-lg focus:outline-none focus:shadow-outline">
-                            Personalia
+                            {{ __('about_user.personalia') }}
                         </p>
                     </div>
                 </div>
@@ -25,7 +25,7 @@
                                 <img class="h-auto w-full mx-auto" src="/images/FotoKevin.jpg"
                                     alt="Foto van Kevin Wesselink">
                             </div>
-                            <h1 class="text-gray-900 font-bold text-xl leading-8 my-1">Kevin Wesselink</h1>
+                            <h1 class="text-gray-900 font-bold text-xl leading-8 my-1">{{ $user->firstName  }} {{  $user->lastName }}</h1>
                             <h3 class="text-gray-600 font-lg text-semibold leading-6">Student Software Development</h3>
                             <p class="text-sm text-gray-500 hover:text-gray-600 leading-6">Student software development
                                 aan het Deltion College te Zwolle.
@@ -36,10 +36,10 @@
                                 <li class="flex items-center py-3">
                                     <span>Status</span>
                                     <span class="ml-auto"><span
-                                            class="bg-green-500 py-1 px-2 rounded text-white text-sm">Actief</span></span>
+                                            class="bg-green-500 py-1 px-2 rounded text-white text-sm">{{ __('about_user.active') }}</span></span>
                                 </li>
                                 <li class="flex items-center py-3">
-                                    <span>Website bestaat sinds:</span>
+                                    <span>{{ __('about_user.website_since') }}</span>
                                     <span class="ml-auto">13 april 2023</span>
                                 </li>
                             </ul>
@@ -59,43 +59,43 @@
                                             d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z" />
                                     </svg>
                                 </span>
-                                <span class="tracking-wide">Over</span>
+                                <span class="tracking-wide">{{ __('about_user.about') }}</span>
                             </div>
                             <div class="text-gray-700">
                                 <div class="grid md:grid-cols-2 text-sm">
                                     <div class="grid grid-cols-2">
-                                        <div class="px-4 py-2 font-semibold">Voornaam</div>
+                                        <div class="px-4 py-2 font-semibold">{{ __('about_user.first_name') }}</div>
                                         <div class="px-4 py-2">{{ $user->firstName }}</div>
                                     </div>
                                     <div class="grid grid-cols-2">
-                                        <div class="px-4 py-2 font-semibold">Achternaam</div>
+                                        <div class="px-4 py-2 font-semibold">{{ __('about_user.last_name') }}</div>
                                         <div class="px-4 py-2">{{ $user->lastName }}</div>
                                     </div>
                                     <div class="grid grid-cols-2">
-                                        <div class="px-4 py-2 font-semibold">Geslacht</div>
+                                        <div class="px-4 py-2 font-semibold">{{ __('about_user.sex') }}</div>
                                         <div class="px-4 py-2">{{ $user->sex }}</div>
                                     </div>
                                     <div class="grid grid-cols-2">
-                                        <div class="px-4 py-2 font-semibold">Telefoonnummer</div>
+                                        <div class="px-4 py-2 font-semibold">{{ __('about_user.telephone_number') }}</div>
                                         <div class="px-4 py-2">{{ $user->telephoneNumber }}</div>
                                     </div>
                                     <div class="grid grid-cols-2">
-                                        <div class="px-4 py-2 font-semibold">Adres</div>
+                                        <div class="px-4 py-2 font-semibold">{{ __('about_user.address') }}</div>
                                         <div class="px-4 py-2">{{ $user->address }}</div>
                                     </div>
                                     <div class="grid grid-cols-2">
-                                        <div class="px-4 py-2 font-semibold">Postcode</div>
+                                        <div class="px-4 py-2 font-semibold">{{ __('about_user.postal_code') }}</div>
                                         <div class="px-4 py-2">{{ $user->postalCode }} {{ $user->city }}</div>
                                     </div>
                                     <div class="grid grid-cols-2">
-                                        <div class="px-4 py-2 font-semibold">Email</div>
+                                        <div class="px-4 py-2 font-semibold">{{ __('about_user.email') }}</div>
                                         <div class="px-4 py-2">
                                             <a class="text-blue-800"
                                                 href="mailto:{{ $user->email }}">{{ $user->email }}</a>
                                         </div>
                                     </div>
                                     <div class="grid grid-cols-2">
-                                        <div class="px-4 py-2 font-semibold">Geboortedatum</div>
+                                        <div class="px-4 py-2 font-semibold">{{ __('about_user.date_of_birth') }}</div>
                                         <div class="px-4 py-2">{{ date('d-m-Y', strtotime($user->dateOfBirth)) }}</div>
                                     </div>
                                 </div>
@@ -111,7 +111,7 @@
                                 <div>
                                     <div class="flex items-center space-x-2 font-semibold text-gray-900 leading-8 mb-3">
                                         <i class="fa-solid fa-book"></i>
-                                        <span class="tracking-wide">Programmeer Ervaring</span>
+                                        <span class="tracking-wide">{{ __('about_user.programming') }}</span>
                                     </div>
                                     @unless ($programming->count() == 0)
                                         @foreach ($programming as $programming)
@@ -122,13 +122,13 @@
                                             </ul>
                                         @endforeach
                                     @else
-                                        <p>Geen programmeerervaringen gevonden.</p>
+                                        <p>{{ __('about_user.no_programming_found') }}</p>
                                     @endunless
                                 </div>
                                 <div>
                                     <div class="flex items-center space-x-2 font-semibold text-gray-900 leading-8 mb-3">
                                         <i class="fa-solid fa-book"></i>
-                                        <span class="tracking-wide">Andere Ervaring</span>
+                                        <span class="tracking-wide">{{ __('about_user.soft_skills') }}</span>
                                     </div>
                                     @unless ($softSkills->count() == 0)
                                         @foreach ($softSkills as $softSkill)
@@ -139,7 +139,7 @@
                                             </ul>
                                         @endforeach
                                     @else
-                                        <p>Geen soft skills gevonden.</p>
+                                        <p>{{ __('about_user.no_soft_skills_found') }}</p>
                                     @endunless
                                 </div>
                             </div>
