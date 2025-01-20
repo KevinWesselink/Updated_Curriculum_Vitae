@@ -15,6 +15,7 @@ return [
     'internship' => 'Internship',
     'programming' => 'Programming',
     'soft_skill' => 'Soft skill',
+    'project' => 'Project',
 
     'edit' => 'Edit',
     'delete' => 'Delete',

@@ -7,7 +7,7 @@
             <p class="mb-4">{{ __('add_entry.programming.add_programming') }}</p>
         </header>
 
-        <form method="POST" action="/programming" enctype="multipart/form-data">
+        <form method="POST" action="{{ route('storeProgramming') }}" enctype="multipart/form-data">
             @csrf
             <div class="mb-6">
                 <label for="languageName" class="inline-block text-lg mb-2">{{ __('add_entry.programming.language_name') }}</label>
@@ -104,7 +104,7 @@
                     {{ __('add_entry.programming.create_new_programming') }}
                 </button>
 
-                <a href="/" class="text-black ml-4"> {{ __('add_entry.default.back') }} </a>
+                <a href="{{ route('choice') }}" class="text-black ml-4"> {{ __('add_entry.default.back') }} </a>
             </div>
         </form>
     </x-card>

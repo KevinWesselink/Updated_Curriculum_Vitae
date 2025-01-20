@@ -7,7 +7,7 @@
             <p class="mb-4">{{ __('edit_entry.education.edit_this_education') }}: {{ $education->schoolName }}</p>
         </header>
 
-        <form method="POST" action="/education/{{ $education->id }}" enctype="multipart/form-data">
+        <form method="POST" action="{{ route('updateEducation', $education->id) }}" enctype="multipart/form-data">
             @csrf
             @method('PUT')
             <div class="mb-6">

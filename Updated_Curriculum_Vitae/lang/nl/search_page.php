@@ -6,6 +6,8 @@ return [
     'search_a_user' => 'Zoek een gebruiker',
     'search' => 'Zoek',
     'search_placeholder' => 'Zoek...',
+    'reset' => 'Reset',
+    'export' => 'Exporteer',
 
     'id' => 'id',
     'first_name' => 'Voornaam',

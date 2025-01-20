@@ -15,6 +15,7 @@ return [
     'internship' => 'Stage',
     'programming' => 'Programmeerervaring',
     'soft_skill' => 'Soft skill',
+    'project' => 'Project',
 
     'edit' => 'Pas aan',
     'delete' => 'Verwijder',

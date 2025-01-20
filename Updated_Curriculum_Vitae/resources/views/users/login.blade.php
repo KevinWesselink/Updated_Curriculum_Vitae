@@ -7,7 +7,7 @@
             <p class="mb-4">{{ __('login.login_to_update_cv') }}</p>
         </header>
 
-        <form method="POST" action="/users/authenticate">
+        <form method="POST" action="{{ route('loginUser') }}">
             @csrf
             <div class="mb-6">
                 <label for="email" class="inline-block text-lg mb-2">{{ __('login.email') }}</label>
@@ -38,7 +38,14 @@
             <div class="mt-8">
                 <p>
                     {{ __('login.no_account_yet') }}
-                    <a href="/register" class="text-laravel">{{ __('login.register') }}</a>
+                    <a href="{{ route('register') }}" class="text-laravel">{{ __('login.register') }}</a>
+                </p>
+            </div>
+
+            <div class="mt-4">
+                <p>
+                    {{ __('login.forgot_password') }}
+                    <a href="{{ route('forgotPassword') }}" class="text-laravel">{{ __('login.reset_password') }}</a>
                 </p>
             </div>
         </form>

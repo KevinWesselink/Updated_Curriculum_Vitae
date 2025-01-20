@@ -9,6 +9,8 @@
                 <button type="submit" class="p-2 bg-blue-500 text-white rounded hover:bg-blue-600 focus:outline-none focus:ring-2 focus:ring-blue-400">
                     {{ __('search_page.search') }}
                 </button>
+                <a href="/search" class="p-2 bg-blue-500 hover:bg-blue-600 rounded text-white">{{ __('search_page.reset') }}</a>
+                <a href="export-users" class="p-2 bg-blue-500 hover:bg-blue-600 rounded text-white">{{ __('search_page.export') }}</a>
             </div>
         </form>
 

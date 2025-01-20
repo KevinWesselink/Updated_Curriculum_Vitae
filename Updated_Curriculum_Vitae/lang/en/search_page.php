@@ -6,6 +6,8 @@ return [
     'search_a_user' => 'Search a user',
     'search' => 'Search',
     'search_placeholder' => 'Search...',
+    'reset' => 'Reset',
+    'export' => 'Export',
 
     'id' => 'id',
     'first_name' => 'Firstname',

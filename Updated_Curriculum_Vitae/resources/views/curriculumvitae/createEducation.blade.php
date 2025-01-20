@@ -7,7 +7,7 @@
             <p class="mb-4">{{ __('add_entry.education.add_education') }}</p>
         </header>
 
-        <form method="POST" action="/educations" enctype="multipart/form-data">
+        <form method="POST" action="{{ route('storeEducation') }}" enctype="multipart/form-data">
             @csrf
             <div class="mb-6">
                 <label for="schoolName" class="inline-block text-lg mb-2">{{ __('add_entry.education.school_name') }}</label>
@@ -111,10 +111,10 @@
 
             <div class="mb-6">
                 <button class="bg-laravel text-white rounded py-2 px-4 hover:bg-black">
-                    Creëer opleiding
+                    {{ __('add_entry.education.create_new_education') }}
                 </button>
 
-                <a href="/" class="text-black ml-4"> Terug </a>
+                <a href="{{ route('choice') }}" class="text-black ml-4"> {{ __('add_entry.default.back') }} </a>
             </div>
         </form>
     </x-card>

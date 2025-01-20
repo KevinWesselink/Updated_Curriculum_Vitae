@@ -7,7 +7,7 @@
             <p class="mb-4">{{ __('register.create_account_to_use_website') }}</p>
         </header>
 
-        <form method="POST" action="/users">
+        <form method="POST" action="{{ route('storeUser') }}">
             @csrf
             <!-- Username Field -->
             <div class="mb-6">
@@ -154,7 +154,7 @@
             <div class="mt-8 text-center">
                 <p>
                     {{ __('register.already_have_account') }}
-                    <a href="/login" class="text-laravel">{{ __('register.login') }}</a>
+                    <a href="{{ route('login') }}" class="text-laravel">{{ __('register.login') }}</a>
                 </p>
             </div>
         </form>

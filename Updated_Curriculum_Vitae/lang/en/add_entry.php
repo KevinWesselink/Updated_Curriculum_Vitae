@@ -2,6 +2,8 @@
 
 // English Translations for the English versions of create(Entry).blade.php
 
+use Monolog\Handler\RollbarHandler;
+
 return [
     'experience' => [
         'create_experience' => 'Create a new experience',
@@ -16,6 +18,8 @@ return [
         'company_location' => 'Company location',
         'company_location_placeholder' => 'For example: Deventer',
         'create_new_experience' => 'Create experience',
+
+        'view_experience' => 'View experience',
     ],
 
     'education' => [
@@ -33,6 +37,8 @@ return [
         'school_location' => 'School location',
         'school_location_placeholder' => 'For example: Amsterdam',
         'create_new_education' => 'Create education',
+
+        'view_education' => 'View education',
     ],
 
     'course' => [
@@ -50,6 +56,8 @@ return [
         'certification_location' => 'Certification location',
         'certification_location_placeholder' => 'For example: Online',
         'create_new_course' => 'Create course',
+
+        'view_course' => 'View course',
     ],
 
     'internship' => [
@@ -67,6 +75,11 @@ return [
         'company_location' => 'Company location',
         'company_location_placeholder' => 'For example: Rotterdam',
         'create_new_internship' => 'Create internship',
+
+        'at' => 'at',
+        'through' => 'through',
+        'dates' => 'Dates',
+        'view_internship' => 'View internship',
     ],
 
     'programming' => [
@@ -99,6 +112,50 @@ return [
         'worked_with_until' => 'Worked with until',
         'worked_with_until_placeholder' => 'For example: Present',
         'create_new_soft_skill' => 'Create soft skill',
+    ],
+
+    'project' => [
+        'create_project' => 'Create a new project',
+        'add_project' => 'Add a new project to your CV',
+        'project_name' => 'Project name',
+        'project_name_placeholder' => 'For example: E-commerce website',
+        'project_description' => 'Project description',
+        'project_description_placeholder' => 'For example: I built an e-commerce website for a client',
+        'project_link' => 'Project link',
+        'project_link_placeholder' => 'For example: https://www.example.com',
+        'project_image' => 'Project image',
+        'project_startdate' => 'Project startdate',
+        'project_enddate' => 'Project enddate',
+        'project_role' => 'Project role',
+        'project_role_placeholder' => 'For example: Frontend Developer',
+        'project_type' => 'Project type',
+        'project_type_placeholder' => 'For example: Web Development',
+        'project_technologies' => 'Project technologies',
+        'project_technologies_placeholder' => 'For example: HTML, CSS, JavaScript',
+        'project_teamsize' => 'Project teamsize',
+        'project_teamsize_placeholder' => 'For example: 5',
+        'project_client' => 'Project client',
+        'project_client_placeholder' => 'For example: Google',
+        'project_location' => 'Project location',
+        'project_location_placeholder' => 'For example: Amsterdam',
+        'project_status' => 'Project status',
+        'project_status_placeholder' => 'For example: Completed',
+        'create_new_project' => 'Create project',
+
+        'choose_project_type' => 'Choose a project type',
+        'personal' => 'Personal',
+        'group' => 'Group',
+        'open_source' => 'Open Source',
+        'professional' => 'Professional',
+
+        'choose_project_status' => 'Choose a project status',
+        'completed' => 'Completed',
+        'in_progress' => 'In Progress',
+        'on_hold' => 'On Hold',
+        'not_started' => 'Not Started',
+        'abandoned' => 'Abandoned',
+
+        'view_project' => 'View project',
     ],
 
     'default' => [

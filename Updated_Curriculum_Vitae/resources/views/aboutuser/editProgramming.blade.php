@@ -7,7 +7,7 @@
             <p class="mb-4">{{ __('edit_entry.programming.edit_this_programming') }}: {{ $programming->languageName }}</p>
         </header>
 
-        <form method="POST" action="/programming/{{ $programming->id }}" enctype="multipart/form-data">
+        <form method="POST" action="{{ route('updateProgramming', $programming->id) }}" enctype="multipart/form-data">
             @csrf
             @method('PUT')
             <div class="mb-6">

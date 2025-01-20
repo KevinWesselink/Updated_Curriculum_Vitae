@@ -27,4 +27,10 @@ return [
     'create_account' => 'Maak account aan',
     'already_have_account' => 'Heb je al een account?',
     'login' => 'Login',
+    
+    // Edit user
+    'edit_account' => 'Pas je account aan',
+    'update_account_details' => 'Pas je accountgegevens aan',
+    'update_account' => 'Pas account aan',
+    'cancel' => 'Annuleren',
 ];

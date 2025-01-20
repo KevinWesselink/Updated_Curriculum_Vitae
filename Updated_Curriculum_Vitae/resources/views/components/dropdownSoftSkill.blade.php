@@ -17,11 +17,11 @@
 
         @auth
         <div>
-            <a href="/softskills/{{ $softSkill->id }}/edit">
+            <a href="{{ route('editSoftSkill', $softSkill->id) }}">
                 <i class="fa-solid fa-pencil pr-2"></i>Pas aan
             </a>
 
-            <form method="POST" action="/softskills/{{ $softSkill->id }}/delete">
+            <form method="POST" action="{{ route('destroySoftSkill', $softSkill->id) }}">
                 @csrf
                 @method('DELETE')
                 <button class="text-red-500"><i class="fa-solid fa-trash pr-2"></i>

@@ -11,4 +11,6 @@ return [
     'courses_not_found' => 'Geen Cursussen gevonden!',
     'internships' => 'Stages',
     'internships_not_found' => 'Geen Stages gevonden!',
+    'projects' => 'Projecten',
+    'projects_not_found' => 'Geen Projecten gevonden!',
 ];

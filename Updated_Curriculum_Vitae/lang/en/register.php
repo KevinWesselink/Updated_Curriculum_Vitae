@@ -27,4 +27,10 @@ return [
     'create_account' => 'Create an account',
     'already_have_account' => 'Already have an account?',
     'login' => 'Login',
+
+    // Edit user
+    'edit_account' => 'Edit your acount',
+    'update_account_details' => 'Update your account details',
+    'update_account' => 'Update account',
+    'cancel' => 'Cancel',
 ];

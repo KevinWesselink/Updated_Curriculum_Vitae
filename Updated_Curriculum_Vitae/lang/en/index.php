@@ -11,4 +11,6 @@ return [
     'courses_not_found' => 'No courses have been found!',
     'internships' => 'Internships',
     'internships_not_found' => 'No internships have been found!',
+    'projects' => 'Projects',
+    'projects_not_found' => 'No projects have been found!',
 ];

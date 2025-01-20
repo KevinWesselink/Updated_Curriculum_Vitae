@@ -28,11 +28,11 @@
         </x-card>
 
         <x-card class="mt-4 p-2 flex space-x-6">
-            <a href="/education/{{ $education->id }}/edit">
+            <a href="{{ route('editEducation', $education->id) }}">
                 <i class="fa-solid fa-pencil"></i>{{ __('show_entry.edit') }}
             </a>
 
-            <form method="POST" action="/education/{{ $education->id }}/delete">
+            <form method="POST" action="{{ route('destroyEducation', $education->id) }}">
                 @csrf
                 @method('DELETE')
                 <button class="text-red-500"><i class="fa-solid fa-trash"></i>

@@ -7,7 +7,7 @@
             <p class="mb-4">{{ __('add_entry.experience.add_experience') }}</p>
         </header>
 
-        <form method="POST" action="/experiences" enctype="multipart/form-data">
+        <form method="POST" action="{{ route('storeExperience') }}" enctype="multipart/form-data">
             @csrf
             <div class="mb-6">
                 <label for="companyName" class="inline-block text-lg mb-2">{{ __('add_entry.experience.company_name') }}</label>
@@ -104,7 +104,7 @@
                     {{ __('add_entry.experience.create_new_experience') }}
                 </button>
 
-                <a href="/" class="text-black ml-4"> {{ __('add_entry.default.back') }} </a>
+                <a href="{{ route('choice') }}" class="text-black ml-4"> {{ __('add_entry.default.back') }} </a>
             </div>
         </form>
     </x-card>

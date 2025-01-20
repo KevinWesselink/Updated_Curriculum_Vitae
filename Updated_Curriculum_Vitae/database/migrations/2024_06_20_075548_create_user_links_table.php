@@ -20,6 +20,7 @@ return new class extends Migration
             $table->foreignId('internship_id')->nullable();
             $table->foreignId('programming_id')->nullable();
             $table->foreignId('softskills_id')->nullable();
+            $table->foreignId('project_id')->nullable();
             $table->timestamps();
         });
     }

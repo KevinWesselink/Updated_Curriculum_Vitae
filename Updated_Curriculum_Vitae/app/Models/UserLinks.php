@@ -16,7 +16,8 @@ class UserLinks extends Model
         'courses_id',
         'internship_id',
         'programming_id',
-        'softskills_id'
+        'softskills_id',
+        'project_id',
     ];
 
     protected $table = "user_links";
@@ -51,4 +52,8 @@ class UserLinks extends Model
         return $this->belongsTo(SoftSkills::class, 'softskills_id');
     }
 
+    public function project()
+    {
+        return $this->belongsTo(Project::class, 'project_id');
+    }
 }

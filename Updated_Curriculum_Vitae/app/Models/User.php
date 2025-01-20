@@ -31,6 +31,9 @@ class User extends Authenticatable
         'currentProfession',
         'email',
         'password',
+        'notifications',
+        'email_notifications',
+        'profile_visibility',
     ];
 
     /**

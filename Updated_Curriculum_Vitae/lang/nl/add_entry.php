@@ -16,6 +16,8 @@ return [
         'company_location' => 'Locatie van het bedrijf',
         'company_location_placeholder' => 'Bijvoorbeeld: Deventer',
         'create_new_experience' => 'Maak ervaring aan',
+
+        'view_experience' => 'Bekijk ervaring',
     ],
 
     'education' => [
@@ -33,6 +35,8 @@ return [
         'school_location' => 'Locatie van de school',
         'school_location_placeholder' => 'Bijvoorbeeld: Amsterdam',
         'create_new_education' => 'Maak opleiding aan',
+
+        'view_education' => 'Bekijk opleiding',
     ],
 
     'course' => [
@@ -50,6 +54,8 @@ return [
         'certification_location' => 'Locatie van certificering',
         'certification_location_placeholder' => 'Bijvoorbeeld: Online',
         'create_new_course' => 'Maak cursus aan',
+
+        'view_course' => 'Bekijk cursus',
     ],
 
     'internship' => [
@@ -67,6 +73,11 @@ return [
         'company_location' => 'Locatie van het bedrijf',
         'company_location_placeholder' => 'Bijvoorbeeld: Rotterdam',
         'create_new_internship' => 'Maak stage aan',
+
+        'at' => 'bij',
+        'through' => 'tot en met',
+        'dates' => 'Data',
+        'view_internship' => 'Bekijk stage',
     ],
 
     'programming' => [
@@ -99,6 +110,51 @@ return [
         'worked_with_until' => 'Geëindigd op',
         'worked_with_until_placeholder' => 'Bijvoorbeeld: Heden',
         'create_new_soft_skill' => 'Maak soft skill aan',
+    ],
+
+    'project' => [
+        'create_project' => 'Maak een nieuw project aan',
+        'add_project' => 'Voeg een nieuw project toe aan je CV',
+        'project_name' => 'Projectnaam',
+        'project_name_placeholder' => 'Bijvoorbeeld: Webshop',
+        'project_description' => 'Projectomschrijving',
+        'project_description_placeholder' => 'Bijvoorbeeld: Ik heb een webshop gebouwd voor een klant',
+        'project_link' => 'Projectlink',
+        'project_link_placeholder' => 'Bijvoorbeeld: https://www.webshop.nl',
+        'project_image' => 'Projectafbeelding',
+        'project_image_placeholder' => 'Bijvoorbeeld: https://www.webshop.nl/afbeelding.jpg',
+        'project_startdate' => 'Project startdatum',
+        'project_enddate' => 'Project einddatum',
+        'project_role' => 'Projectrol',
+        'project_role_placeholder' => 'Bijvoorbeeld: Front-end Developer',
+        'projectType' => 'Projecttype',
+        'projectType_placeholder' => 'Bijvoorbeeld: Webontwikkeling',
+        'project_technologies' => 'Projecttechnologieën',
+        'project_technologies_placeholder' => 'Bijvoorbeeld: HTML, CSS, JavaScript',
+        'project_teamsize' => 'Projectteamgrootte',
+        'project_teamsize_placeholder' => 'Bijvoorbeeld: 5',
+        'project_client' => 'Projectklant',
+        'project_client_placeholder' => 'Bijvoorbeeld: Google',
+        'project_location' => 'Projectlocatie',
+        'project_location_placeholder' => 'Bijvoorbeeld: Amsterdam',
+        'project_status' => 'Projectstatus',
+        'project_status_placeholder' => 'Bijvoorbeeld: Afgerond',
+        'create_new_project' => 'Maak project aan',
+
+        'choose_project_type' => 'Kies een projecttype',
+        'personal' => 'Persoonlijk',
+        'group' => 'Groep',
+        'open_source' => 'Open source',
+        'professional' => 'Professioneel',
+
+        'choose_project_status' => 'Kies een projectstatus',
+        'completed' => 'Afgerond',
+        'in_progress' => 'In uitvoering',
+        'on_hold' => 'In de wacht',
+        'not_started' => 'Niet begonnen',
+        'abandoned' => 'Verlaten',
+
+        'view_project' => 'Bekijk project',
     ],
 
     'default' => [

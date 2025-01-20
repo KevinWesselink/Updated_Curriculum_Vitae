@@ -7,7 +7,7 @@
             <p class="mb-4">{{ __('add_entry.internship.add_internship') }}</p>
         </header>
 
-        <form method="POST" action="/internships" enctype="multipart/form-data">
+        <form method="POST" action="{{ route('storeInternship') }}" enctype="multipart/form-data">
             @csrf
             <div class="mb-6">
                 <label for="companyName" class="inline-block text-lg mb-2">{{ __('add_entry.internship.company_name') }}</label>
@@ -124,7 +124,7 @@
                     {{ __('add_entry.internship.create_new_internship') }}
                 </button>
 
-                <a href="/" class="text-black ml-4"> {{ __('add_entry.default.back') }} </a>
+                <a href="{{ route('choice') }}" class="text-black ml-4"> {{ __('add_entry.default.back') }} </a>
             </div>
         </form>
     </x-card>

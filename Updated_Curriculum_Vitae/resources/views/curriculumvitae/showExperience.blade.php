@@ -27,11 +27,11 @@
         </x-card>
 
         <x-card class="mt-4 p-2 flex space-x-6">
-            <a href="/experience/{{ $experience->id }}/edit">
+            <a href="{{ route('editExperience', $experience->id) }}">
                 <i class="fa-solid fa-pencil"></i>{{ __('show_entry.edit') }}
             </a>
 
-            <form method="POST" action="/experience/{{ $experience->id }}/delete">
+            <form method="POST" action="{{ route('destroyExperience', $experience->id) }}">
                 @csrf
                 @method('DELETE')
                 <button class="text-red-500"><i class="fa-solid fa-trash"></i>

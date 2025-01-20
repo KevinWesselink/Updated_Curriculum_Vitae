@@ -10,4 +10,7 @@ return [
     'login_button' => 'Log In',
     'no_account_yet' => 'Heb je nog geen account?',
     'register' => 'Registreer',
+
+    'forgot_password' => 'Wachtwoord vergeten?',
+    'reset_password' => 'Reset wachtwoord',
 ];

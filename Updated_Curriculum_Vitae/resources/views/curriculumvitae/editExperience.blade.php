@@ -7,7 +7,7 @@
             <p class="mb-4">{{ __('edit_entry.experience.edit_this_experience') }}: {{ $experience->companyName }}</p>
         </header>
 
-        <form method="POST" action="/experience/{{ $experience->id }}" enctype="multipart/form-data">
+        <form method="POST" action="{{ route('updateExperience', $experience->id) }}" enctype="multipart/form-data">
             @csrf
             @method('PUT')
             <div class="mb-6">

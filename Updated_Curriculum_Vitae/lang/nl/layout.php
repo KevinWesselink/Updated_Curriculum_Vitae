@@ -13,4 +13,5 @@ return [
     'register' => 'Registreer',
     'login' => 'Inloggen',
     'logout' => 'Uitloggen',
+    'settings' => 'Instellingen',
 ];

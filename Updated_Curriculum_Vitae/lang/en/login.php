@@ -10,4 +10,7 @@ return [
     'login_button' => 'Login',
     'no_account_yet' => 'Do you not have an account yet?',
     'register' => 'Register',
+
+    'forgot_password' => 'Forgot password?',
+    'reset_password' => 'Reset password',
 ];

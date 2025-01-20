@@ -1,6 +1,11 @@
 <x-layout>
     <x-card>
-        <table class="min-w-full bg-white border border-gray-200 rounded-md">
+        <div class="mb-4">
+            <a href="{{ route('aboutUser', $userId) }}" class="bg-laravel hover:bg-laravel_hover px-2 py-1 ml-2">GA NAAR JE EIGEN PAGINA</a>
+            <a href="{{ route('editUser', $userId) }}" class="bg-green-300 hover:bg-green-400 px-2 py-1">GEBRUIKER AANPASSEN</a>
+            <a href="{{ route('manageProfileAccess', $userId) }}" class="bg-laravel hover:bg-laravel_hover px-2 py-1 ml-2"> MANAGE PROFILE ACCESS</a>
+        </div>
+        <table class="min-w-full bg-white border border-gray-200 rounded-md mb-4">
             <thead class="bg-gray-100">
                 <tr>
                     <th class="p-3 text-left border-b">{{ __('manage.type') }}</th>
@@ -28,8 +33,8 @@
                                 {{ $education->yearsFollowed }}
                             </td>
                             <td class="flex p-3 border-b gap-1">
-                                <a href="/education/{{ $education->id }}/edit" class="bg-green-300 hover:bg-green-400 px-2 py-1">{{ __('manage.edit') }}</a>
-                                <form method="POST" action="/education/{{ $education->id }}/delete">
+                                <a href="{{ route('editEducation', $education->id) }}" class="bg-green-300 hover:bg-green-400 px-2 py-1">{{ __('manage.edit') }}</a>
+                                <form method="POST" action="{{ route('destroyEducation', $education->id) }}">
                                     @csrf
                                     @method('DELETE')
                                     <button class="bg-red-300 hover:bg-red-400 px-2 py-1">
@@ -61,8 +66,8 @@
                             {{ $experience->yearsWorked }}
                         </td>
                         <td class="flex p-3 border-b gap-1">
-                            <a href="/experience/{{ $experience->id }}/edit" class="bg-green-300 hover:bg-green-400 px-2 py-1">{{ __('manage.edit') }}</a>
-                            <form method="POST" action="/experience/{{ $experience->id }}/delete">
+                            <a href="{{ route('editExperience', $experience->id) }}" class="bg-green-300 hover:bg-green-400 px-2 py-1">{{ __('manage.edit') }}</a>
+                            <form method="POST" action="{{ route('destroyExperience', $experience->id) }}">
                                 @csrf
                                 @method('DELETE')
                                 <button class="bg-red-300 hover:bg-red-400 px-2 py-1">
@@ -94,8 +99,8 @@
                             {{ $course->validityEarned }} tot {{ $course->validUntil }}
                         </td>
                         <td class="flex p-3 border-b gap-1">
-                            <a href="/courses/{{ $course->id }}/edit" class="bg-green-300 hover:bg-green-400 px-2 py-1">{{ __('manage.edit') }}</a>
-                            <form method="POST" action="/courses/{{ $course->id }}/delete">
+                            <a href="{{ route('editCourse', $course->id) }}" class="bg-green-300 hover:bg-green-400 px-2 py-1">{{ __('manage.edit') }}</a>
+                            <form method="POST" action="{{ route('destroyCourse', $course->id) }}">
                                 @csrf
                                 @method('DELETE')
                                 <button class="bg-red-300 hover:bg-red-400 px-2 py-1">
@@ -127,8 +132,41 @@
                             {{ $internship->internshipStartedAt }} tot {{ $internship->internshipEndedAt }}
                         </td>
                         <td class="flex p-3 border-b gap-1">
-                            <a href="/internships/{{ $internship->id }}/edit" class="bg-green-300 hover:bg-green-400 px-2 py-1">{{ __('manage.edit') }}</a>
-                            <form method="POST" action="/internships/{{ $internship->id }}/delete">
+                            <a href="{{ route('editInternship', $internship->id) }}" class="bg-green-300 hover:bg-green-400 px-2 py-1">{{ __('manage.edit') }}</a>
+                            <form method="POST" action="{{  route('destroyInternship', $internship->id) }}">
+                                @csrf
+                                @method('DELETE')
+                                <button class="bg-red-300 hover:bg-red-400 px-2 py-1">
+                                    {{ __('manage.delete') }}
+                                </button>
+                            </form>
+                        </td>
+                    </tr>
+                @endforeach
+                @else
+                    <tr>
+                        <td colspan="4" class="p-3 text-center text-gray-500">{{ __('manage.internships_not_found') }}</td>
+                    </tr>
+                @endif
+
+                @if ($projects->isNotEmpty())
+                @foreach ($projects as $project)
+                    <tr class="hover:bg-gray-100">
+                        <td class="p-3 border-b">
+                            {{ __('manage.project') }}
+                        </td>
+                        <td class="p-3 border-b">
+                            {{ $project->projectName }}
+                        </td>
+                        <td class="p-3 border-b">
+                            {{ $project->projectRole }}
+                        </td>
+                        <td class="p-3 border-b">
+                            {{ $project->projectStartDate }} tot {{ $project->projectEndDate }}
+                        </td>
+                        <td class="flex p-3 border-b gap-1">
+                            <a href="{{ route('editProject', $project->id) }}" class="bg-green-300 hover:bg-green-400 px-2 py-1">{{ __('manage.edit') }}</a>
+                            <form method="POST" action="{{  route('destroyProject', $project->id) }}">
                                 @csrf
                                 @method('DELETE')
                                 <button class="bg-red-300 hover:bg-red-400 px-2 py-1">
@@ -174,8 +212,8 @@
                             {{ $programming->startedWith }} tot {{ $programming->workedWithUntil }}
                         </td>
                         <td class="flex p-3 border-b gap-1">
-                            <a href="/education/{{ $programming->id }}/edit" class="bg-green-300 hover:bg-green-400 px-2 py-1">{{ __('manage.edit') }}</a>
-                            <form method="POST" action="/education/{{ $education->id }}/delete">
+                            <a href="{{ route('editProgramming', $programming->id) }}" class="bg-green-300 hover:bg-green-400 px-2 py-1">{{ __('manage.edit') }}</a>
+                            <form method="POST" action="{{ route('destroyProgramming', $programming->id) }}">
                                 @csrf
                                 @method('DELETE')
                                 <button class="bg-red-300 hover:bg-red-400 px-2 py-1">
@@ -207,8 +245,8 @@
                             {{ $softSkill->startedWith }} tot {{ $softSkill->workedWithUntil }}
                         </td>
                         <td class="flex p-3 border-b gap-1">
-                            <a href="/softskills/{{ $softSkill->id }}/edit" class="bg-green-300 hover:bg-green-400 px-2 py-1">{{ __('manage.edit') }}</a>
-                            <form method="POST" action="/softskills/{{ $softSkill->id }}/delete">
+                            <a href="{{ route('editSoftSkill', $softSkill->id) }}" class="bg-green-300 hover:bg-green-400 px-2 py-1">{{ __('manage.edit') }}</a>
+                            <form method="POST" action="{{ route('destroySoftSkill', $softSkill->id) }}">
                                 @csrf
                                 @method('DELETE')
                                 <button class="bg-red-300 hover:bg-red-400 px-2 py-1">
