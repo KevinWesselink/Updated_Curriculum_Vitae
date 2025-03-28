@@ -17,7 +17,7 @@ return new class extends Migration
             $table->string('firstName');
             $table->string('lastName');
             $table->enum('sex', ['male', 'female', 'preferNotToSay']);
-            $table->integer('telephoneNumber');
+            $table->string('telephoneNumber');
             $table->string('address');
             $table->string('postalCode');
             $table->string('city');
