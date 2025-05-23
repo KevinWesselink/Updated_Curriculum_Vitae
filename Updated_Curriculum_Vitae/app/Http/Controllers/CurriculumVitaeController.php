@@ -156,6 +156,8 @@ class CurriculumVitaeController extends Controller
             ->where('profile_owner_id', $userId)
             ->value('status');
 
+        // dd($user, $programming, $softSkills, $requestStatus);
+
         return view('users.aboutUser')
         ->with('programming', $programming)
         ->with('softSkills', $softSkills)

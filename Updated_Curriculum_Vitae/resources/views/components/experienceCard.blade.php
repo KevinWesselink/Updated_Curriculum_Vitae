@@ -12,7 +12,7 @@
                 {{ __('add_entry.experience.job_title') }}: <span class="text-gray-900">{{ $experience->jobTitle }}</span>
             </div>
             <div class="text-sm font-medium text-gray-500 mb-4">
-                {{ __('add_entry.experience.years_worked') }}: <span class="text-gray-900">{{ $experience->yearsWorked }}</span>
+                {{ __('add_entry.experience.years_worked') }}: <span class="text-gray-900">{{ $experience->yearsWorked . ' ' . __('add_entry.experience.years') }}</span>
             </div>
             <div class="text-sm font-medium text-gray-500">
                 {{  __('add_entry.experience.company_location') }}: 

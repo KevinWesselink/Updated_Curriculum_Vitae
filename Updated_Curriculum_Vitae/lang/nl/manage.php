@@ -3,6 +3,11 @@
 // Dutch Translations for the Dutch version of manage.blade.php
 
 return [
+    'go_to_own_page' => 'Ga naar je eigen pagina',
+    'edit_user' => 'Bewerk gebruiker',
+    'manage_profile_access' => 'Beheer profieltoegang',
+    'choice' => 'Voeg een ervaring toe aan je CV',
+
     'type' => 'Soort',
     'name' => 'Naam',
     'institution' => 'Instelling',

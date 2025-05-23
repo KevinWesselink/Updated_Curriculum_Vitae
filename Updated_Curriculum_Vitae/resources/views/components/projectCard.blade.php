@@ -9,7 +9,7 @@
                 </a>
             </h3>
             <div class="text-sm font-medium text-gray-500 mb-4">
-                {{ __('add_entry.project.project_status') }}: <span class="text-gray-900">{{ $project->projectStatus }}</span>
+                {{ __('add_entry.project.project_status') }}: <span class="text-gray-900">{{ __('add_entry.project.' . $project->projectStatus) }}</span>
             </div>
             <div class="text-sm font-medium text-gray-500 mb-4">
                 {{ __('add_entry.project.project_client') }}: <span class="text-gray-900">{{ $project->projectClient }}</span>

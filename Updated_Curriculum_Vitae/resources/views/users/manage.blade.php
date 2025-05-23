@@ -1,9 +1,10 @@
 <x-layout>
     <x-card>
         <div class="mb-4">
-            <a href="{{ route('aboutUser', $userId) }}" class="bg-laravel hover:bg-laravel_hover px-2 py-1 ml-2">GA NAAR JE EIGEN PAGINA</a>
-            <a href="{{ route('editUser', $userId) }}" class="bg-green-300 hover:bg-green-400 px-2 py-1">GEBRUIKER AANPASSEN</a>
-            <a href="{{ route('manageProfileAccess', $userId) }}" class="bg-laravel hover:bg-laravel_hover px-2 py-1 ml-2"> MANAGE PROFILE ACCESS</a>
+            <a href="{{ route('aboutUser', $userId) }}" class="bg-laravel hover:bg-laravel_hover px-2 py-1 ml-2">{{ __('manage.go_to_own_page') }}</a>
+            <a href="{{ route('editUser', $userId) }}" class="bg-green-300 hover:bg-green-400 px-2 py-1">{{ __('manage.edit_user') }}</a>
+            <a href="{{ route('manageProfileAccess', $userId) }}" class="bg-laravel hover:bg-laravel_hover px-2 py-1">{{ __('manage.manage_profile_access') }}</a>
+            <a href="{{ route('choice')}}" class="bg-green-300 hover:bg-green-400 px-2 py-1">{{ __('manage.choice') }}</a>
         </div>
         <table class="min-w-full bg-white border border-gray-200 rounded-md mb-4">
             <thead class="bg-gray-100">

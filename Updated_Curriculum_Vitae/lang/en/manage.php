@@ -3,6 +3,11 @@
 // English Translations for the English version of manage.blade.php
 
 return [
+    'go_to_own_page' => 'Go to your own page',
+    'edit_user' => 'Edit user',	
+    'manage_profile_access' => 'Manage profile access',
+    'choice' => 'Add an experience to your CV',
+
     'type' => 'Type',
     'name' => 'Name',
     'institution' => 'Institution',

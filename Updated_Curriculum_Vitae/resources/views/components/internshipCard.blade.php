@@ -14,7 +14,7 @@
                 </span>
             </div>
             <div class="text-sm font-medium text-gray-500 mb-4">
-                {{ __('add_entry.internship.final_assessment') }}: <span class="text-gray-900">{{ $internship->finalAssessment }}</span>
+                {{ __('add_entry.internship.final_assessment') }}: <span class="text-gray-900">{{ __('add_entry.internship.' . $internship->finalAssessment) }}</span>
             </div>
             <div class="text-sm font-medium text-gray-500">
                 {{  __('add_entry.internship.company_location') }}: 

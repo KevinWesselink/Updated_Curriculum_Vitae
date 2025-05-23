@@ -15,7 +15,9 @@
                 </div>
             </div>
 
-            @if ($user->profile_visibility == 'public' || auth()->user()->id == $user->id)
+            {{-- @dd($user, $programming, $softSkills); --}}
+
+            @if ($user->profile_visibility == 'public' || (auth()->check() && auth()->user()->id == $user->id))
                 @include('partials.profileDetails', ['user' => $user, 'programming' => $programming, 'softSkills' => $softSkills])
 
             @elseif ($user->profile_visibility == 'private')

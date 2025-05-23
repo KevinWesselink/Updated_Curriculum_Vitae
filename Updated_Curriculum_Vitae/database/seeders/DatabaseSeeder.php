@@ -22,5 +22,6 @@ class DatabaseSeeder extends Seeder
         $this->call(SoftSkillSeeder::class);
         $this->call(ProgrammingSeeder::class);
         $this->call(ProjectSeeder::class);
+        $this->call(UserLinkSeeder::class);
     }
 }

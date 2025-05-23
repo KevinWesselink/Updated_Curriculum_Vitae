@@ -16,6 +16,7 @@ return [
         'company_location' => 'Locatie van het bedrijf',
         'company_location_placeholder' => 'Bijvoorbeeld: Deventer',
         'create_new_experience' => 'Maak ervaring aan',
+        'years' => 'jaar',
 
         'view_experience' => 'Bekijk ervaring',
     ],
@@ -78,6 +79,11 @@ return [
         'through' => 'tot en met',
         'dates' => 'Data',
         'view_internship' => 'Bekijk stage',
+
+        'Excellent' => 'Uitstekend',
+        'Good' => 'Goed',
+        'Average' => 'Gemiddeld',
+        'Poor' => 'Slecht',
     ],
 
     'programming' => [

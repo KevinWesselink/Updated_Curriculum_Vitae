@@ -18,6 +18,7 @@ return [
         'company_location' => 'Company location',
         'company_location_placeholder' => 'For example: Deventer',
         'create_new_experience' => 'Create experience',
+        'years' => 'Years',
 
         'view_experience' => 'View experience',
     ],
@@ -80,6 +81,11 @@ return [
         'through' => 'through',
         'dates' => 'Dates',
         'view_internship' => 'View internship',
+
+        'Excellent' => 'Excellent',
+        'Good' => 'Good',
+        'Average' => 'Average',
+        'Poor' => 'Poor',
     ],
 
     'programming' => [

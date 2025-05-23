@@ -117,7 +117,7 @@
                             @foreach ($softSkills as $softSkill)
                                 <ul class="list-inside space-y-2">
                                     <li>
-                                        <x-dropdownSoftSkills :softSkill="$softSkill" />
+                                        <x-dropdownSoftSkill :softSkill="$softSkill" />
                                     </li>
                                 </ul>
                             @endforeach
